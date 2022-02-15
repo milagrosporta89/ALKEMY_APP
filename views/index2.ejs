@@ -1,0 +1,86 @@
+<!DOCTYPE HTML >
+<HTML>
+   <HEAD>   
+ 
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi billetera</title>
+   </HEAD>
+
+   <BODY>
+ 
+        <div class="main">
+            <div class="main_container">
+
+                <div class="main_header">
+                    <p>MI BILLETERA</p>            
+                </div>
+                <div class="main_saldo">
+                    <p>SALDO ACTUAL</p>
+                    <p>$3500</p>
+                </div>
+                <div>
+                    <p>Ultimos movimientos</p>
+                </div>
+                <!-- item list -->
+                <div class="main_list"> 
+                    <% for(let i=0; i<transactions.length; i++){%>
+                    <div class="list_table">
+
+                        
+                            <div id="list_item">
+                                <p><%=transactions[i].date %> </p>
+                                <p><%=transactions[i].category %></p>
+                                <p>$ <%=transactions[i].amount %></p>
+                            </div>
+                            <a type="button" class="edit_btn" ></a>
+                        </div>     <%}%> 
+                    <!-- <div class="list_table">
+                            <div id="list_item">
+                                <p>17/2/2022</p>
+                                <p>Comida</p>
+                                <p>$1500</p>
+                            </div>
+                            <a type="button" class="edit_btn" ></a>
+                        </div>      
+                    <div class="list_table">
+                            <div id="list_item">
+                                <p>17/2/2022</p>
+                                <p>Comida</p>
+                                <p>$1500</p>
+                            </div>
+                            <a type="button" class="edit_btn" ></a>
+                        </div>      
+                    <div class="list_table">
+                            <div id="list_item">
+                                <p>17/2/2022</p>
+                                <p>Comida</p>
+                                <p>$1500</p>
+                            </div>
+                            <a type="button" class="edit_btn" ></a>
+                        </div>      
+                    <div class="list_table">
+                            <div id="list_item">
+                                <p>17/2/2022</p>
+                                <p>Comida</p>
+                                <p>$1500</p>
+                            </div>
+                            <a type="button" class="edit_btn" ></a>
+                        </div> -->
+                    
+                </div>
+                <a type="button" class="see-more_btn" >Ver mas >></a>
+                <!-- buttons -->
+                <a type="button" class="entry_btn" href="/entry">Nuevo Ingreso</a>
+                <a type="button" class="withdrawal_btn" href="/withdrawal" >Nuevo Gasto</a>
+                </div>
+        </div>
+    
+   </BODY>
+</HTML>
