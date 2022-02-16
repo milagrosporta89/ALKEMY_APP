@@ -1,3 +1,4 @@
+const req = require('express/lib/request');
 const fs = require('fs');
 const path = require('path');
 const db = require ("../database/models")
@@ -20,15 +21,17 @@ const mainController = {
     entry: (req,res) => {
         res.render("entryForm")
     },
-    entryForm: (req,res) =>{/* para enviar formulario */
-        db.Transaction.create({ /* hacer un fetch con los datos traidos por el endpoint generado al hacer on submit */
+    entryEndPoint: (req,res) =>{
+        console.log (req)
+    },
+    entryForm:(req,res)=> {
+          db.Transaction.create({ 
             date:req.body.date,
             category: req.body.category,
             amount: req.body.amount,
             type: "entry"
  
-        });/*  res.redirect("/") */
-            res.send(req.body)},
+        })},
     
     withdrawal: (req,res) =>{
         res.render ("withdrawalForm")

@@ -15,6 +15,9 @@ const apiController = {
          
         })
 },
+    entry: (req,res) =>{
+        
+    }
 }
    
 

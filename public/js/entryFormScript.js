@@ -1,25 +1,32 @@
-const date = document.getElementsByTagName ("date")
-const category = document.getElementsByTagName ("category")
-const amount = document.getElementsByTagName ("amount")
+const date = document.getElementById ("date")
+const category = document.getElementById ("category")
+const amount = document.getElementById ("amount")
 const formBnt = document.getElementsByClassName ("entryForm_btn")
-const form = document.getElementByid ("form")
-console.log (date,category,amount)
+const form = document.getElementById ("form")
+/* console.log (date,category,amount) */
 document.addEventListener("DOMContentLoaded", () => {
 /*     fetchData(); */
 })
+
 form.addEventListener("submit", (e => {
     e.preventDefault ()
-
-
-
-
-
-} ))
-const url = "/balance"
-const formData = {
+    const url = "/entry"
+    const data1 = { date: date.value,
+                    category: category.value,
+                    amount: amount.value * -1,
+                    type: "entry"}
+    const options = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(data1)
     
-}
-const save = fetch (url)
-            .then(response => response.json())
-            .then(data => console.log(data));
-console.log (save)
+    }
+    
+    fetch (url,options)
+              
+    
+
+} )) 
+
+
