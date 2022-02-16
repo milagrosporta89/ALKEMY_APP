@@ -11,13 +11,7 @@ const mainController = {
     index: (req, res) => {
         res.render("index");
 },
-    index2: (req,res) =>{
-        db.Transaction.findAll()
-            .then(function (transactions){
-                res.render("index2",{transactions: transactions})
-            })
-  
-    },
+
     entry: (req,res) => {
         res.render("entryForm")
     },
@@ -27,7 +21,7 @@ const mainController = {
     entryForm:(req,res)=> {
           db.Transaction.create({ 
             date:req.body.date,
-            category: req.body.category,
+            category: req.body.category ,
             amount: req.body.amount,
             type: "entry"
  

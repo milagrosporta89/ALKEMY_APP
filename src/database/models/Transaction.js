@@ -22,8 +22,9 @@ module.exports= (sequelize, dataTypes) => {
         },
         type: {
             type: dataTypes.STRING (50)
-        }
-
+        },
+        
+   
     }
     let config = {
         tableName: "transactions",

@@ -9,7 +9,7 @@ router.get("/", mainController.index);
 router.get("/entry", mainController.entry);
 
 router.get("/withdrawal", mainController.withdrawal)
-router.get ("/index2", mainController.index2)
+
 
 router.get("/balance", apiController.balance) 
 router.post ("/entry", mainController.entryForm)
