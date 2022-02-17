@@ -37,7 +37,30 @@ const apiController = {
     entryData: (req, res) => {
         db.Transaction.findAll({
             where : 
-                {type :"entry"}
+                {type :"entry"},
+
+            order : [
+                    ["date","DESC"]
+                ]
+            
+        }   
+        )
+        .then (transactions => {
+
+            return res.status(200).json({
+                data: transactions,
+                status:200 
+            })
+         
+        })
+},
+    withdrawalData: (req, res) => {
+        db.Transaction.findAll({
+            where : 
+                {type :"withdrawal"},
+            order : [
+                    ["date","DESC"]
+                ]
             
         }   
         )

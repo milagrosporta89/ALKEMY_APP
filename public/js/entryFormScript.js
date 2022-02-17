@@ -15,7 +15,7 @@ const id =url[url.length -1]
 
 /* ENVIO POR POST DE DATOS DE FORMULARIO */
 /* PETICION */
-const fetchData= async () => {
+const fetchData= async () => { //podria funcionar guardar los primero 10 datos del fetch para consultarlos para rellenar los datos del formulario desdee local storage
     try{
         const res= await fetch ("/balance")
         const data = await res.json()

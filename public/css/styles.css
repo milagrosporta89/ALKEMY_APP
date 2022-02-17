@@ -94,6 +94,13 @@
         font-size: 20px;
         border-radius: 13px;
     }
+    .index-btn button{
+        background-color: white;
+        border: 1px solid grey;
+        width: 32%;
+        border-radius: 8px;
+        height: 2em;
+    }
     .main_list{
         display: grid;
         grid-template-rows: 1fr 1fr;
@@ -122,6 +129,7 @@
         border-radius: 3px;
         /* border: 1px solid #b1aeae; */
         cursor: pointer;
+        color: #bbafaf;
     }
     .entry_btn{
         background-color: rgb(55 111 102 / 97%);
@@ -156,10 +164,12 @@
         cursor: pointer;
     }
     .positive {
-        color: green
+        color: green;
+        font-weight: bold;
     }
     .negative{
-        color:red
+        color:red;
+        font-weight: bold;
     }
     /* ENTRY FORM */
     .entryForm_container{
