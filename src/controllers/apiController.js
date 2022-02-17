@@ -34,7 +34,33 @@ const apiController = {
          
         })
 },
-    entry: (req,res) =>{
+    entryData: (req, res) => {
+        db.Transaction.findAll({
+            where : 
+                {type :"entry"}
+            
+        }   
+        )
+        .then (transactions => {
+
+            return res.status(200).json({
+                data: transactions,
+                status:200 
+            })
+         
+        })
+},
+    editData: (req,res) =>{
+        let id= req.params.id 
+        db.Transaction.findOne({ where: { id: id } })
+            .then (data => {
+                return res.status(200).json(
+                        {
+                        data: data,
+                        status: 200
+                        }
+                        )
+            })
         
     }
 }

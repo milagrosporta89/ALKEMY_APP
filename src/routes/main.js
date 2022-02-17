@@ -12,9 +12,13 @@ router.get("/withdrawal", mainController.withdrawal)
 
 
 router.get("/balance", apiController.balance) 
+router.get("/entryData", apiController.entryData) 
+
 router.post ("/entry", mainController.entryForm)
-    
-  
+router.post ("/withdrawal",mainController.withdrawalForm)
+router.get("/edit/:id", mainController.edit)
+
+
 
 module.exports = router; 
 // ENDPOINTS

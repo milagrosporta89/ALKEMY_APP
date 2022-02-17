@@ -21,10 +21,29 @@
     p{
         margin:0
     }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    a:hover {
+       
+        text-decoration:none; 
+        cursor:pointer;  
+    }
 
     /* INDEX */
     .main{
+        display: flex;        
+        border: 1px solid black;
+        height: 100vh;
         
+
+    }
+    .main_form{
+        display: flex;
+        /* border: 1px solid black; */
+        height: 70vh;
     }
     .main_container{
         display:grid;
@@ -32,18 +51,37 @@
         margin: auto;
         padding: 1em;
         justify-self: end;
-        height: fit-content;
+        height: 50vh;
+        width: 25em;
+        border: 1px solid #cecece;
+        padding: 25px 10px 10px 11px;
+        border-radius: 10px;
+        box-shadow: 9px 9px  5px#80808038;
+    }
+    .main_container-index{
+        display:grid;
+        grid-template-columns: 1fr;
+        margin: auto;
+        padding: 1em;
+        justify-self: end;
+        height: ma;
+        width: 25em;
+        border: 1px solid #cecece;
+        padding: 24px 20px 10px 20px;
+        border-radius: 10px;
+        box-shadow: 9px 9px  5px#80808038;
     }
     .main_header{
         display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color: blue;
+        background-color: #0b22a7ba;
         color:white;
         font-weight: bold;
         text-align: center;
         height: 3em;
         align-items: center;
+        /* margin: 0px 0px; */
     }
     .main_saldo{
         display: flex;
@@ -68,26 +106,27 @@
         display: grid;
         grid-template-columns: 1fr 2fr 0.7fr;
         justify-content: space-between;
-        border: 1px solid red;
-        margin: 3px;
-        background-color: #ef3c3c6e;
-        border-radius: 4px;
+        border-bottom: 1px solid #cacbca;
+        margin: 4px;
+        padding: 1px;
+        background-color: #ffffff6e;
+        /* border-radius: 4px; */
     }
     .list_table{
         display:grid;
         grid-template-columns: 1fr 0.05fr;
     }
     .edit_btn{
-        background-color: grey;
+        /* background-color: #c3c3c3; */
         margin: 3px 0px;
         border-radius: 3px;
-        border: 1px solid #464444;
+        /* border: 1px solid #b1aeae; */
         cursor: pointer;
     }
     .entry_btn{
-        background-color: rgb(30 118 8 / 50%);
-        margin: 3px 0px;
-        border-radius: 3px;
+        background-color: rgb(55 111 102 / 97%);
+        margin: 3px 0;
+        border-radius: 33px;
         border: 1px solid #464444;
         cursor: pointer;
         font-weight: bold;
@@ -95,11 +134,12 @@
         color: white;
         height: auto;
         padding: 6%;
+        font-size: 18px;
     }
     .withdrawal_btn{
-        background-color: #b92727;
+        background-color: #2735b9;
         margin: 3px 0px;
-        border-radius: 3px;
+        border-radius: 33px;
         border: 1px solid #464444;
         cursor: pointer;
         font-weight: bold;
@@ -107,6 +147,7 @@
         color: white;
         height: auto;
         padding: 6%;
+        font-size: 18px;
     }
     .see-more_btn{
         text-align: end;
@@ -114,31 +155,57 @@
         margin-bottom: 0.5em;
         cursor: pointer;
     }
+    .positive {
+        color: green
+    }
+    .negative{
+        color:red
+    }
     /* ENTRY FORM */
     .entryForm_container{
         display:grid;
-        grid-template-columns: 0.3fr 1fr;
+        grid-template-columns: 0.7fr 1fr;
         padding: 1em;
-        /* width: 50%; */
-        grid-gap: 2em;
-        /* grid-template-rows: 2em 2em 2em 2em; */
+        /* width: fit-content; */
+        grid-gap: 0.8em;
         height: 14em;
-        /* border: 1px solid red; */
+        /* border: 1px solid black; */
         justify-items: start;
+        border-radius: 10px;
+        margin-top: 1em;
     }
+    .input{
+ }
     .entryForm_btn{
         grid-area: 4/2;
-        width: -webkit-fill-available;
     }
     .entryForm_mainContainer{
         justify-self: center;
     }
     .entryForm_title{
-        background-color:green;
+        display: flex;
+        background-color: #dfdfdf;
         height: 2em;
         text-align: center;
-        /* justify-self: stretch; */
+        margin-top: -18px;
+        justify-content: center;
+        font-size: 21px;
+        align-items: center;
     }
     .withdrawal_title{
         background-color: red;
     }
+
+    .editForm-btn-order-delete{
+        grid-column: 2/3;
+        width: 100%;
+        border-radius: 7px;
+        height: 2em;
+        background-color: #385bf3;
+        border: 2px solid #acaaaa;
+        color: white;
+    }
+    #content{
+        align:center
+    }
+

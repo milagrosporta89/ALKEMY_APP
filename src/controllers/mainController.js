@@ -15,21 +15,46 @@ const mainController = {
     entry: (req,res) => {
         res.render("entryForm")
     },
-    entryEndPoint: (req,res) =>{
-        console.log (req)
-    },
+  
     entryForm:(req,res)=> {
+       
           db.Transaction.create({ 
             date:req.body.date,
             category: req.body.category ,
             amount: req.body.amount,
             type: "entry"
  
-        })},
-    
+        }).then ((resultado) =>{ 
+
+            res.render("index")
+        })
+           
+
+        }, 
+    withdrawalForm:(req,res)=> {
+       
+          db.Transaction.create({ 
+            date:req.body.date,
+            category: req.body.category ,
+            amount: req.body.amount * -1,
+            type: "withdrawal"
+ 
+        }).then ((resultado) =>{ 
+
+            res.render("index")
+        })
+           
+
+        }, 
+        
+   
     withdrawal: (req,res) =>{
         res.render ("withdrawalForm")
     },
+    edit: (req,res) => {
+       let id= req.params.id
+        res.render("editForm")
+    }
 }
 
 module.exports = mainController
