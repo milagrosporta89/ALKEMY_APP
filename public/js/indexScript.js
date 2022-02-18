@@ -1,28 +1,30 @@
-
-
-
+/* -------------------------------------INDEX SCRIPT -------------------------------  */
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
+
 })
-/* PETICION ALL DATA*/
+
+/* PETICION ALL DATA -----------------------*/
 const fetchData= async () => {
     try{
         const res= await fetch ("/balance")
         const data = await res.json()
         fillValues (data)
         totalBalance (data)
+        
     }catch (error){
         console.log (error)
     }finally{
         console.log ("finally")
     }
 };
-/* PETICION INGRESOS */
+/* PETICION INGRESOS ------------------------*/
 const fetchEntry = async () => {
     try{
         const res =await fetch ("/entryData")
         const data = await res.json ()
         fillValues (data)
+      
     }catch (error){
         console.log (error)
     }finally {
@@ -31,12 +33,12 @@ const fetchEntry = async () => {
 }
 const entryBtn=document.getElementById("entry")
 entryBtn.addEventListener("click" ,()=> {
-    document.querySelectorAll (".list_table").forEach(e=> e.remove())  
+document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
     fetchEntry()  
   
 })
-/* PETICION EGRESOS */
+/* PETICION EGRESOS  -------------------------*/
 const fetchWithdrawal = async () => {
     try{
         const res =await fetch ("/withdrawalData")
@@ -48,6 +50,7 @@ const fetchWithdrawal = async () => {
         console.log ("finally entro data ")
     }
 }
+
 const withDrawalBtn =document.getElementById("withdrawal")
 withDrawalBtn.addEventListener("click" ,()=> {
     document.querySelectorAll (".list_table").forEach(e=> e.remove())  
@@ -55,6 +58,28 @@ withDrawalBtn.addEventListener("click" ,()=> {
     fetchWithdrawal()  
   
 })
+/* -------------------------AUXILIARES----------------------------------------- */
+
+
+/* MOSTRAR TODOS */
+const allTransactions = document.getElementById("all")
+allTransactions.addEventListener ("click", (e) => {
+    document.querySelectorAll (".list_table").forEach(e=> e.remove()) 
+    fetchData()
+   
+})
+
+
+const showAll = (data) => {
+    let localData={}
+    if(data.data.length>10){
+        localData=data
+      return localData
+    }else{
+        localData.push (data.data)
+      return  localData
+    }
+}
 
 /* BALANCE TOTAL ---> trae el balance total */ 
 const totalBalance =  (data) => {
@@ -74,6 +99,7 @@ function reverseDate(str) {
 /* FILAS TABLA ---> POPULATE*/
 
 const fillValues = (data) => {
+    
     const balance =document.getElementById ("balance")
     const templateRow = document.getElementById ("template-row").content
     const fragment = document.createDocumentFragment()
@@ -85,7 +111,7 @@ const fillValues = (data) => {
         info = data.data.length
     }
 
-    for (let i=0; i<info ; i++){//hacer un if que si data.data.length es menor a 10 el for se ejecute con .length y si no que sea 10 
+    for (let i=0; i<info ; i++){
         const clone = templateRow.cloneNode(true)
         clone.querySelector("#date").textContent =reverseDate (data.data[i].date)
         clone.querySelector("#category").textContent =  "  |  " +  data.data[i].category

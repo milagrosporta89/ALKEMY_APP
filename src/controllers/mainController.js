@@ -46,14 +46,38 @@ const mainController = {
            
 
         }, 
-        
-   
+          
     withdrawal: (req,res) =>{
         res.render ("withdrawalForm")
     },
-    edit: (req,res) => {
-       let id= req.params.id
+     edit: (req,res) => {
+
         res.render("editForm")
+    },
+    delete: (req,res) => {
+      let id = req.params.id
+
+      db.Transaction.destroy({
+          where: {id:id}
+      }).then(result => {
+        res.json({ redirect: "/" });
+      })
+    },
+    update: (req,res) => {
+     
+        db.Transaction.update({ 
+            date:req.body.date,
+            category: req.body.category ,
+            amount: req.body.amount, 
+        },
+        {
+            where: {id:req.params.id}
+        }
+        ).then ((resultado) =>{ 
+
+            res.json({ redirect: "/" });
+        })
+           
     }
 }
 

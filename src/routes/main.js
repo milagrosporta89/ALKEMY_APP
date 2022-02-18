@@ -13,6 +13,8 @@ router.get("/edit/:id", mainController.edit)
 router.post ("/entry", mainController.entryForm)
 router.post ("/withdrawal",mainController.withdrawalForm)
 
+router.delete ("/edit/:id", mainController.delete)
+router.post ("/edit/:id", mainController.update )
 //ENDPOINTS
 router.get("/balance", apiController.balance) 
 router.get("/entryData", apiController.entryData) 

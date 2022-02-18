@@ -64,7 +64,7 @@
         margin: auto;
         padding: 1em;
         justify-self: end;
-        height: ma;
+        height: 96vh;
         width: 25em;
         border: 1px solid #cecece;
         padding: 24px 20px 10px 20px;
@@ -194,13 +194,14 @@
     }
     .entryForm_title{
         display: flex;
-        background-color: #dfdfdf;
+        /* background-color: #ffffff; */
         height: 2em;
         text-align: center;
         margin-top: -18px;
         justify-content: center;
         font-size: 21px;
         align-items: center;
+        border-bottom: 1px solid grey;
     }
     .withdrawal_title{
         background-color: red;
@@ -209,11 +210,12 @@
     .editForm-btn-order-delete{
         grid-column: 2/3;
         width: 100%;
-        border-radius: 7px;
+        border-radius: 18px;
         height: 2em;
-        background-color: #385bf3;
-        border: 2px solid #acaaaa;
+        background-color: #41508e;
+        border: 1px solid #acaaaa;
         color: white;
+        font-weight: bold;
     }
     #content{
         align:center

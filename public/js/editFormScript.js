@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 fetchData ()})
 
@@ -20,14 +22,14 @@ const fetchData= async () => { //podria funcionar guardar los primero 10 datos d
         const res= await fetch ("/balance")
         const data = await res.json()
         editValues (data)
-        console.log (data)
+        /* console.log (data) */
       
     }catch (error){
         console.log (error)
     }
 };
 
-/* INSERTAR VALORES DE BUSQUEDA EN INPUT DE FORUMARIO */
+/* INSERTAR VALORES DE BUSQUEDA EN INPUT DE FORMULARIO */
 
 const editValues = (info) => {
 
@@ -39,6 +41,44 @@ const editValues = (info) => {
         }
     }
 }
+/* BORRAR ENTRADA  */
+const deleteData= document.getElementById("delete-btn")
+
+deleteData.addEventListener("click", (e)=>{
+    const endpoint= `/edit/${id}`;
+    fetch(endpoint, {
+        method: "DELETE"
+    })
+    .then(response => response.json())    
+  /*   .then ( data => console.log (data)) */
+    .then(data => window.location.href = data.redirect)
+    .catch(error => console.log (error))
+})
+/* EDITAR ENTRADA  */
+const updateData = document.getElementById ("update-btn")
+
+updateData.addEventListener ("click", (e) =>  {
+    const data1 =   { 
+        date: date.value,
+        category: category.value,
+        amount: amount.value,
+        type: "entry"
+        }
+    const endpoint2= `/edit/${id}`;
+    fetch (endpoint2,{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(data1)
+
+    })
+    .then(response => response.json())    
+    .then(data => window.location.href = data.redirect)
+    .catch(error => console.log (error))
+
+  })
+
+
 
 
 

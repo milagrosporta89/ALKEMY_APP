@@ -41,14 +41,22 @@ const apiController = {
 
             order : [
                     ["date","DESC"]
-                ]
+                ],
+            limit:10
             
         }   
         )
-        .then (transactions => {
-
+        .then (transactions => { 
+            
+                
+                
+     /*            for(i=0; i<transactions.data.length; i++){                    
+                    contador = contador + transactions.data[i].amount  
+                }//---- podia hacerse que la operacion de suma de todos los valores se haga antes de mandar el Json, asi no mandamos la data completa para sumarla desde el front (no se puede trabajar con la respuesta a la peticioon si antes no se la transformo a json )
+ */
             return res.status(200).json({
                 data: transactions,
+   
                 status:200 
             })
          
