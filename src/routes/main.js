@@ -9,6 +9,7 @@ router.get("/", mainController.index);
 router.get("/entry", mainController.entry);
 router.get("/withdrawal", mainController.withdrawal)
 router.get("/edit/:id", mainController.edit)
+router.get("/desktop", mainController.desktop)
 
 router.post ("/entry", mainController.entryForm)
 router.post ("/withdrawal",mainController.withdrawalForm)

@@ -78,6 +78,9 @@ const mainController = {
             res.json({ redirect: "/" });
         })
            
+    },
+    desktop: (req,res) => {
+        res.render ("indexDesktop")
     }
 }
 

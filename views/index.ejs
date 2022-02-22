@@ -17,57 +17,143 @@
    </HEAD>
 
    <BODY>
- 
-        <div class="main">
-            <div class="main_container-index ">
-                <div>
 
-                    <div class="main_header">
-                      
-                        <i class="fa-solid fa-bars"></i>
-                        <p>MI BILLETERA</p> 
-                        <i class="fa-solid fa-power-off"></i>      
-                    </div>
-                    <div class="main_saldo">
-                        <p>Balance Total</p>
-                        <h2 id="total">$3500</h2>
-                    </div>
-                </div>
-                <div class="main_list-container">
-                    <div >
-                        <p>Ultimos movimientos</p>
-                        <br>
-                        <div class="index-btn">
-                            <button id ="all">Todos</button>
-                            <button id ="entry">Ingreso</button>
-                            <button id = "withdrawal">Egreso</button>
-    
-                        </div>
-                        <br>
-                    </div>
-                    <!-- item list -->
-                    <section class=" " id="balance"> </section>
-                    <template class="main_list" id="template-row"> 
-                        <div class="list_table">
-                                <div id="list_item">
-                                    <p id="date">17/2/2022</p>
-                                    <p id="category">Comida</p>
-                                    <p id="amount">$1500</p>
-                                </div>
-                                <a type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></a>
-                        </div>                   
-                    </template>
-                    <a type="button" class="see-more_btn" >Ver mas >></a>
-                </div>
-                <!-- buttons -->
-                <div class="main_btn">
-                    <a type="button" class="entry_btn" href="/entry">+ </a>
-                    <a type="button" class="withdrawal_btn" href="/withdrawal" >-</a>
-
-                </div>
-                </div>
+    <header>
+        <div class="header">
+            <p>MI BILLETERA</p>
         </div>
+    </header>
+ <div class = " main_body--desktop">
+     <div class="main_search--desktop"><!-- barra lateral blanca con botones y busquedas   -->
+        <p>aqui va el contenido </p>
+     </div>
+     <div class="main">
+         <div class="main_container-index ">
+             <div class="wrapper">
+
+                 <div class="main_header">
+                   
+                     <i class="fa-solid fa-bars"></i>
+                     <p>MI BILLETERA</p> 
+                     <i class="fa-solid fa-power-off"></i>      
+                 </div>
+                 <div class="main_saldo">
+                     <p>Balance Total</p>
+                     <h2 id="total">$3500</h2>
+                 </div>
+             </div>
+             <div class="main_list-container">
+                 <div >
+                     <p>Ultimos movimientos</p>
+                     <br>
+                     <div class="index-btn">
+                         <button id ="all">Todos</button>
+                         <button id ="entry">Ingreso</button>
+                         <button id = "withdrawal">Egreso</button>
+ 
+                     </div>
+                     <br>
+                 </div>
+                 <!-- item list -->
+                 <section class=" " id="balance"> </section>
+                 <template class="main_list" id="template-row"> 
+                     <div class="list_table">
+                             <div id="list_item">
+                                 <p id="date">17/2/2022</p>
+                                 <p id="category">Comida</p>
+                                 <p id="amount">$1500</p>
+                             </div>
+                             <a type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></a>
+                     </div>                   
+                 </template>
+                 <a type="button" class="see-more_btn" >Ver mas >></a>
+             </div>
+             <!-- buttons -->
+             <div class="main_btn">
+                 <a type="button" class="entry_btn" href="/entry">+ </a>
+                 <a type="button" class="withdrawal_btn" href="/withdrawal" >-</a>
+
+             </div>
+             </div>
+     </div>
+     <div class="main_widget-bar--desktop"><!-- pantalla de ingreso y egreso  -->
+        <div class="entryForm_mainContainer"> <!-- widtget ingreso -->
+            <div class="main_header-widget--desktop">
+                
+            </div>
+            <div>
+
+                <div class="entryForm_title">
+                    <p>Nuevo Ingreso</p>
+                </div>
+                <form action="/entry"  method="POST"  class="" id="form">
+                    <div class="entryForm_container">
+                            
+                            <label for="date">Fecha </label>
+                            <div>
+                                <input type="date" name="date" id="date" required  >
+                                <span></span>
+                            </div>
+                        
+                            
+                            <label for="category">Categoria</label>
+                            <div>
+                                <input type="text"  name="category" id="category" required >
+                                <span></span>
+                            </div>
+                        
+                            <label for="amount">Monto</label>
+                            <div  >
     
+                                <input  name="amount" id="amount"   >
+                                <span></span>
+                            </div>
+                            <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
+                    </div>
+              
+    
+                </form>
+            </div>
+            </div>
+        <div class="entryForm_mainContainer"><!-- widget egreso -->
+            <div class="main_header-widget--desktop">
+                
+            </div>
+            <div>
+
+                <div class="entryForm_title">
+                    <p>Nuevo Gasto</p>
+                </div>
+                <form action="/withdrawal"  method="POST"  class="" id="form">
+                    <div class="entryForm_container">
+                            
+                            <label for="date">Fecha </label>
+                            <input type="date" name="date" id="date">
+                        
+                        
+                            <label for="category">Categoria</label>
+                            <input type="text"  name="category" id="category">
+                        
+                            <label for="amount">Monto</label>
+                            <input type="text" name="amount" id="amount" >
+                            <button type="submit" class="editForm-btn-order-delete" id ="btn">Aceptar</button>
+                    </div>
+                </form>
+    
+            </div>
+            </div>
+
+
+
+
+     </div>
+
+ </div>
+    <footer>
+        <div class="header">
+      
+        </div>
+    </footer>
         <script src="js/indexScript.js"></script>
    </BODY>
 </HTML>
