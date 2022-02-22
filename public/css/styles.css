@@ -34,7 +34,8 @@
 
     /* INDEX */
     .main{
-        display: flex;        
+        display: flex;   
+        flex-direction: column;     
         border: 1px solid black;
         height: 100vh;
         
@@ -54,9 +55,10 @@
         height: 50vh;
         width: 25em;
         border: 1px solid #cecece;
-        padding: 25px 10px 10px 11px;
+        padding: 0 0px 0px 0px;
         border-radius: 10px;
         box-shadow: 9px 9px  5px#80808038;
+        background-color: #f1f1f1;
     }
     .main_container-index{
         display:grid;
@@ -65,34 +67,53 @@
         padding: 1em;
         justify-self: end;
         height: 96vh;
-        width: 25em;
+        /* width: 25em; */
         border: 1px solid #cecece;
-        padding: 24px 20px 10px 20px;
+        padding: 0px 0px 10px 0px;
         border-radius: 10px;
         box-shadow: 9px 9px  5px#80808038;
+        background-color: #f1f1f1;
+        grid-template-rows: 0.fr;
     }
     .main_header{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         background-color: #0b22a7ba;
         color:white;
         font-weight: bold;
         text-align: center;
-        height: 3em;
+        height: 6vh;
         align-items: center;
-        /* margin: 0px 0px; */
+        margin: 0px 0px;
+        border-radius: 10px 10px 0px 0px;
+        border: 1px solid #d1d1d1;
+        padding: 0px 21px;
     }
     .main_saldo{
         display: flex;
-        border: 2px solid #afafaf;
+        flex-direction: column;
+        /* border: 2px solid #afafaf; */
         justify-content: space-evenly;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        height: 3em;
+        /* margin-top: 0; */
+        /* margin-bottom: 0; */
+        height: 4em;
         align-items: center;
         font-size: 20px;
-        border-radius: 13px;
+        border-radius: 0px 0px 13px 13px;
+        background-image: linear-gradient(to right, #4a5cbb, #7a89c3);
+        color: white;
+    }
+    .main_saldo p{
+        font-size: 16px;
+    }
+    .main_list-container{
+        border: 1px solid #dbdbdb;
+        background-color: white;
+        border-radius: 10px;
+        padding: 1em;
+        margin: 7px;
+        height: 50vh;
     }
     .index-btn button{
         background-color: white;
@@ -129,34 +150,58 @@
         border-radius: 3px;
         /* border: 1px solid #b1aeae; */
         cursor: pointer;
-        color: #bbafaf;
+        color: #817777;
+    }
+    .main_btn{
+        display:flex;
+        justify-content: space-evenly;
     }
     .entry_btn{
-        background-color: rgb(55 111 102 / 97%);
-        margin: 3px 0;
-        border-radius: 33px;
-        border: 1px solid #464444;
-        cursor: pointer;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        height: auto;
-        padding: 6%;
-        font-size: 18px;
+        margin: 0px 0;    
+        border-radius: 10px 0px 0px 10px;    
+        cursor: pointer;     
+        text-align: center;    
+        color: white;    
+        height: 100%;    
+        font-size: 6em;    
+        width: 48%;
+        background: #4d5ebb;    
+        vertical-align: middle;    
+        display: flex;    
+        align-items: center;    
+        justify-content: center;    
+        line-height: 0;
+        transition: background-color 0.3s ease-out 100ms
+
+
+    }
+    .entry_btn:hover{
+        background-color: #78CFA3
     }
     .withdrawal_btn{
-        background-color: #2735b9;
-        margin: 3px 0px;
-        border-radius: 33px;
-        border: 1px solid #464444;
+        margin: 0;
+        border-radius: 0px 10px 10px 0px;
         cursor: pointer;
-        font-weight: bold;
-        text-align: center;
+        /* font-weight: bold; */
+        /* text-align: center; */
         color: white;
-        height: auto;
-        padding: 6%;
-        font-size: 18px;
+        height: 100%;
+        font-size: 6em;
+        width: 48%;
+        background: #4d5ebb;
+        /* vertical-align: middle; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+        padding: 7% 13% 11%;
+        transition: background-color 0.3s ease-out 100ms
+
+        }
+    .withdrawal_btn:hover{
+        background-color: red;
     }
+    
     .see-more_btn{
         text-align: end;
         margin-top: 0.5em;
@@ -173,19 +218,45 @@
     }
     /* ENTRY FORM */
     .entryForm_container{
+        /* width: 100%; */
         display:grid;
         grid-template-columns: 0.7fr 1fr;
         padding: 1em;
-        /* width: fit-content; */
-        grid-gap: 0.8em;
+        width: 24em;
+        /* grid-gap: 0.8em; */
         height: 14em;
-        /* border: 1px solid black; */
+        border: 1px solid #c3c3c3;
         justify-items: start;
         border-radius: 10px;
-        margin-top: 1em;
+        margin-top: 5px;
+        align-items: center;
+        background-color: #ffffff;
     }
-    .input{
- }
+ .entryForm_container  input{
+      
+        border: none;      
+        background-color: white;      
+        border-bottom: 1px solid grey;      
+        height: 2em;      
+        width: 100%;
+    }
+    .entryForm_container div{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width:100%;
+        justify-content: end;
+        
+    }
+    .danger{
+        color:red;
+        font-size: 14px;
+    }
+    .entryForm_container span{
+      /* border-bottom: 1px solid grey; */
+      /* height: 32px; */
+    }
+
     .entryForm_btn{
         grid-area: 4/2;
     }
@@ -194,14 +265,15 @@
     }
     .entryForm_title{
         display: flex;
-        /* background-color: #ffffff; */
-        height: 2em;
+        background-color: #ffffff;
+        height: 3em;
         text-align: center;
         margin-top: -18px;
         justify-content: center;
         font-size: 21px;
         align-items: center;
-        border-bottom: 1px solid grey;
+        border: 1px solid #b9b7b7;
+        border-radius: 10px;
     }
     .withdrawal_title{
         background-color: red;
@@ -220,4 +292,10 @@
     #content{
         align:center
     }
+    @media screen and (min-width: 600px){  
 
+        .main_container-index{
+            /* background-color: red; */
+            width: 70%;
+        }
+    }

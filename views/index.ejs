@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ac84a17cfe.js" crossorigin="anonymous"></script>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi billetera</title>
@@ -19,41 +20,51 @@
  
         <div class="main">
             <div class="main_container-index ">
-
-                <div class="main_header">
-                    <p>MI BILLETERA</p>            
-                </div>
-                <div class="main_saldo">
-                    <p>SALDO ACTUAL</p>
-                    <p id="total">$3500</p>
-                </div>
                 <div>
-                    <p>Ultimos movimientos</p>
-                    <br>
-                    <div class="index-btn">
-                        <button id ="all">Todos</button>
-                        <button id ="entry">Ingreso</button>
-                        <button id = "withdrawal">Egreso</button>
 
+                    <div class="main_header">
+                      
+                        <i class="fa-solid fa-bars"></i>
+                        <p>MI BILLETERA</p> 
+                        <i class="fa-solid fa-power-off"></i>      
                     </div>
-                    <br>
+                    <div class="main_saldo">
+                        <p>Balance Total</p>
+                        <h2 id="total">$3500</h2>
+                    </div>
                 </div>
-                <!-- item list -->
-                <section class=" " id="balance"> </section>
-                <template class="main_list" id="template-row"> 
-                    <div class="list_table">
-                            <div id="list_item">
-                                <p id="date">17/2/2022</p>
-                                <p id="category">Comida</p>
-                                <p id="amount">$1500</p>
-                            </div>
-                            <a type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></a>
-                    </div>                   
-                </template>
-                <a type="button" class="see-more_btn" >Ver mas >></a>
+                <div class="main_list-container">
+                    <div >
+                        <p>Ultimos movimientos</p>
+                        <br>
+                        <div class="index-btn">
+                            <button id ="all">Todos</button>
+                            <button id ="entry">Ingreso</button>
+                            <button id = "withdrawal">Egreso</button>
+    
+                        </div>
+                        <br>
+                    </div>
+                    <!-- item list -->
+                    <section class=" " id="balance"> </section>
+                    <template class="main_list" id="template-row"> 
+                        <div class="list_table">
+                                <div id="list_item">
+                                    <p id="date">17/2/2022</p>
+                                    <p id="category">Comida</p>
+                                    <p id="amount">$1500</p>
+                                </div>
+                                <a type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>                   
+                    </template>
+                    <a type="button" class="see-more_btn" >Ver mas >></a>
+                </div>
                 <!-- buttons -->
-                <a type="button" class="entry_btn" href="/entry">Nuevo Ingreso</a>
-                <a type="button" class="withdrawal_btn" href="/withdrawal" >Nuevo Gasto</a>
+                <div class="main_btn">
+                    <a type="button" class="entry_btn" href="/entry">+ </a>
+                    <a type="button" class="withdrawal_btn" href="/withdrawal" >-</a>
+
+                </div>
                 </div>
         </div>
     
