@@ -7,24 +7,18 @@ const db = require ("../database/models")
 
 const apiController = {
 
-/*     balance: (req, res) => {
-        db.Transaction.findAll(   
-        )
-        .then (transactions => {
-            return res.status(200).json({
-                data: transactions,
-                status:200
-            })
-         
-        })
-}, */
+
     balance: (req, res) => {
         db.Transaction.findAll({
             order : [
                 ["date","DESC"]
-            ]
-        }   
-        )
+            ],
+            include : [
+                {
+               model: db.Category,
+               as: "category"}  
+            ]})
+        
         .then (transactions => {
 
             return res.status(200).json({
@@ -42,6 +36,12 @@ const apiController = {
             order : [
                     ["date","DESC"]
                 ],
+            include: [
+                {
+                    model:db.Category,
+                    as:"category"
+                }
+            ],
             limit:10
             
         }   
@@ -68,7 +68,13 @@ const apiController = {
                 {type :"withdrawal"},
             order : [
                     ["date","DESC"]
-                ]
+                ],
+            include :[
+                {
+                    model: db.Category,
+                    as: "category"
+                }
+            ]
             
         }   
         )
@@ -93,6 +99,16 @@ const apiController = {
                         )
             })
         
+    },
+    category: (req,res) => {
+        db.Category.findAll ().then (data => {
+            return res.status (200).json (
+                {
+                    data:data,
+                    status: 200
+                }
+            )
+        })
     }
 }
    

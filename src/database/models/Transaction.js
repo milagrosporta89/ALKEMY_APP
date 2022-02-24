@@ -13,8 +13,8 @@ module.exports= (sequelize, dataTypes) => {
             type: dataTypes.DATE,
 
         },
-        category: {
-            type:dataTypes.STRING (50)
+        id_category: {
+            type:dataTypes.INTEGER
 
         },
         amount: {
@@ -31,6 +31,12 @@ module.exports= (sequelize, dataTypes) => {
         timestamps:false
     }
  const Transaction = sequelize.define (alias, cols, config )
+ Transaction.associate = function (models) {
 
+    Transaction.belongsTo(models.Category, {     
+        as: "category",
+        foreignKey: "id_category"
+    })
+ }
  return Transaction
 }

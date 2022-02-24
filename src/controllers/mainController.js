@@ -17,12 +17,13 @@ const mainController = {
     },
   
     entryForm:(req,res)=> {
-       
+       db.Category.findOne({where : {category : req.body.category}})
+       .then ((result )=> {
           db.Transaction.create({ 
             date:req.body.date,
-            category: req.body.category ,
+            id_category: result.id ,
             amount: req.body.amount,
-            type: "entry"
+            type: "income"})
  
         }).then ((resultado) =>{ 
 
@@ -32,20 +33,21 @@ const mainController = {
 
         }, 
     withdrawalForm:(req,res)=> {
-       
-          db.Transaction.create({ 
-            date:req.body.date,
-            category: req.body.category ,
-            amount: req.body.amount * -1,
-            type: "withdrawal"
+        db.Category.findOne({where : {category : req.body.category}})
+        .then ((result )=> {
+           db.Transaction.create({ 
+             date:req.body.date,
+             id_category: result.id ,
+             amount: req.body.amount *-1,
+             type: "withdrawal"})
+  
+         }).then ((resultado) =>{ 
  
-        }).then ((resultado) =>{ 
-
-            res.render("index")
-        })
-           
-
-        }, 
+             res.render("index")
+         })
+            
+ 
+         }, 
           
     withdrawal: (req,res) =>{
         res.render ("withdrawalForm")
@@ -64,24 +66,40 @@ const mainController = {
       })
     },
     update: (req,res) => {
-     
-        db.Transaction.update({ 
-            date:req.body.date,
-            category: req.body.category ,
-            amount: req.body.amount, 
-        },
-        {
-            where: {id:req.params.id}
-        }
-        ).then ((resultado) =>{ 
+        db.Category.findOne(({where : {category : req.body.category}}))
+        .then ((result) => {
+            db.Transaction.update ({
+                date :req.body.date,
+                id_category: result.id,
+                amount: req.body.amount
 
-            res.json({ redirect: "/" });
+            },
+            {
+                where : { id : req.params.id }
+            })
+
+
+
         })
+        .then ((result)=>{
+            res.json ({redirect :"/"})
+        })
+  
            
     },
     desktop: (req,res) => {
-        res.render ("indexDesktop")
+        res.render ("index")
+    },
+    categoryEdit: (req,res) => {
+        res.render ("categoryEdit")
+    },
+    newCategory : (req,res) => {
+        db.Category.create ({
+            category: req.body.category, 
+            type: req.body.type
+        }) 
+        res.render ("entryForm")
     }
-}
+}   
 
 module.exports = mainController

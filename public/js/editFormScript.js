@@ -35,7 +35,7 @@ const editValues = (info) => {
 
     for (i=0; i<info.data.length; i++){
         if (info.data[i].id ==id) {
-            category.value= info.data[i].category
+            category.value= info.data[i].category.category
             date.value = info.data[i].date
             amount.value = info.data[i].amount
         }

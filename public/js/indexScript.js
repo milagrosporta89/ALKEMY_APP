@@ -31,13 +31,17 @@ const fetchEntry = async () => {
         console.log ("finally entro data ")
     }
 }
-const entryBtn=document.getElementById("entry")
-entryBtn.addEventListener("click" ,()=> {
-document.querySelectorAll (".list_table").forEach(e=> e.remove())  
+const entryBtn=document.querySelectorAll("#entry")
+console.log (entryBtn)
+entryBtn.forEach (e => {
+    e.addEventListener ("click", ()=> {
+        document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
     fetchEntry()  
-  
+
+    })
 })
+
 /* PETICION EGRESOS  -------------------------*/
 const fetchWithdrawal = async () => {
     try{
@@ -51,21 +55,32 @@ const fetchWithdrawal = async () => {
     }
 }
 
-const withDrawalBtn =document.getElementById("withdrawal")
-withDrawalBtn.addEventListener("click" ,()=> {
+const withDrawalBtn =document.querySelectorAll("#withdrawal")
+withDrawalBtn.forEach (e => {
+    e.addEventListener("click", () => {
+        document.querySelectorAll (".list_table").forEach(e=> e.remove())  
+
+        fetchWithdrawal()  
+      
+
+    })
+})
+/* withDrawalBtn.addEventListener("click" ,()=> {
     document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
     fetchWithdrawal()  
   
-})
+}) */
 /* -------------------------AUXILIARES----------------------------------------- */
 
 
 /* MOSTRAR TODOS */
 const allTransactions = document.getElementById("all")
+console.log (allTransactions)
 allTransactions.addEventListener ("click", (e) => {
     document.querySelectorAll (".list_table").forEach(e=> e.remove()) 
     fetchData()
+    console.log("apretaron todos")
    
 })
 
@@ -103,6 +118,7 @@ const fillValues = (data) => {
     const balance =document.getElementById ("balance")
     const templateRow = document.getElementById ("template-row").content
     const fragment = document.createDocumentFragment()
+    console.log (data.data[0].category.category)
 
     let info = 0
     if (data.data.length>10){
@@ -114,7 +130,7 @@ const fillValues = (data) => {
     for (let i=0; i<info ; i++){
         const clone = templateRow.cloneNode(true)
         clone.querySelector("#date").textContent =reverseDate (data.data[i].date)
-        clone.querySelector("#category").textContent =  "  |  " +  data.data[i].category
+        clone.querySelector("#category").textContent =  "  |  " +  data.data[i].category.category
         clone.querySelector("#amount").textContent = "$ " + data.data[i].amount
         clone.querySelector("#edit-btn").setAttribute ("href", "/edit/" + data.data[i].id)
         if(data.data[i].amount < 0){
@@ -129,6 +145,9 @@ const fillValues = (data) => {
     
     
 }
+/* DROPDOWN MENU */
+
+
 
 
  

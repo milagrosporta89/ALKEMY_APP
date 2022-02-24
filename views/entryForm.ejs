@@ -27,7 +27,7 @@
                     <i class="fa-solid fa-power-off"></i>             
                 </div>
                 <div class="entryForm_mainContainer">
-                    <div class="entryForm_title">
+                    <div class="entryForm_title" data-type="entry">
                         <p>Nuevo Ingreso</p>
                     </div>
                     <form action="/entry"  method="POST"  class="" id="form">
@@ -41,8 +41,14 @@
                             
                                 
                                 <label for="category">Categoria</label>
-                                <div>
-                                    <input type="text"  name="category" id="category" required >
+                                <div id="dropdown"> 
+                                    <!-- <input type="text"  name="category" id="category" > -->
+                       
+                                        <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
+                                        </select>
+                                        <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fa-regular fa-pen-to-square" ></i></a>
+                            
+
                                     <span></span>
                                 </div>
                             
@@ -61,5 +67,6 @@
               
         </div>
         <script src="/js/validations.js"></script>
+        <script src="js/entryFormScript.js" ></script>
    </BODY>
 </HTML>

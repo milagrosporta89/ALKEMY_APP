@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ac84a17cfe.js" crossorigin="anonymous"></script>
+<!--     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi billetera</title>
    </HEAD>
@@ -22,31 +24,40 @@
                 <div class="main_header">
                     <i class="fa-solid fa-bars"></i>
                     <p>MI BILLETERA</p> 
-                    <i class="fa-solid fa-power-off"></i>      
+                    <i class="fa-solid fa-power-off"></i>             
                 </div>
                 <div class="entryForm_mainContainer">
-                    <div class="entryForm_title" data-type="withdrawal">
-                        <p>Nuevo Gasto</p>
+                    <div class="entryForm_title">
+                        <p>Nuevo Categoria</p>
                     </div>
-                    <form action="/withdrawal"  method="POST"  class="" id="form">
+                    <form action="/categoryEdit"  method="POST"  class="" id="form">
                         <div class="entryForm_container">
                                 
-                                <label for="date">Fecha </label>
-                                <input type="date" name="date" id="date">
+                        
                             
-                            
+                                
                                 <label for="category">Categoria</label>
-                                <input type="text"  name="category" id="category">
+                                <input type="text" name="category"></input>
+                                <label for="type">Tipo</label>
+                                <select name="type" id="" > 
+                                    <option value="withdrawal">Gasto</option>
+                                    <option value="entry">Ingreso</option>
+                                </select>
+                                <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
                             
-                                <label for="amount">Monto</label>
-                                <input type="text" name="amount" id="amount" >
-                                <button type="submit" class="editForm-btn-order-delete" id ="btn">Aceptar</button>
+
+                                    <span></span>
+                                </div>
+                            
+                     
                         </div>
+                        <a type="button" href ="/"class="see-more_btn" > &lt;&lt;Volver</a>
+
                     </form>
-                    <a type="button" href ="/"class="see-more_btn" > &lt;&lt;Volver</a>
                 </div>
               
         </div>
-        <script src="js/entryFormScript.js" ></script> 
+        <script src="/js/validations.js"></script>
+        <script src="js/entryFormScript.js" ></script>
    </BODY>
 </HTML>
