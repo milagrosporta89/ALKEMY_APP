@@ -17,6 +17,11 @@
    </HEAD>
 
    <BODY>
+    <header>
+        <div class="header">
+            <p>MI BILLETERA</p>
+        </div>
+    </header>
  
         <div class="main_form">
             <div class="main_container">
@@ -37,24 +42,23 @@
                                 <div>
                                     <input type="date" name="date" id="date" required  >
                                     <span></span>
-                                </div>
-                            
-                                
+                                </div>                         
                                 <label for="category">Categoria</label>
                                 <div id="dropdown"> 
                                     <!-- <input type="text"  name="category" id="category" > -->
                        
                                         <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
                                         </select>
-                                        <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fa-regular fa-pen-to-square" ></i></a>
+                                        <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
                             
 
                                     <span></span>
                                 </div>
-                            
-                                <label for="amount">Monto</label>
-                                <div  >
-
+                                <div class="amount-symbol">
+                                    <label for="amount">Monto</label>
+                                    <span>$</span>
+                                </div>                          
+                                <div>
                                     <input  name="amount" id="amount"   >
                                     <span></span>
                                 </div>
@@ -66,7 +70,13 @@
                 </div>
               
         </div>
+        <footer>
+            <div class="header">
+
+            </div>
+        </footer>
         <script src="/js/validations.js"></script>
         <script src="js/entryFormScript.js" ></script>
+       
    </BODY>
 </HTML>

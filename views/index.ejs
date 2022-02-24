@@ -46,9 +46,10 @@
             <div >
                 <button id ="all" >Todos</button>
                 
-                <button > Egresos </button>
+  
+                <button id ="entry" class="main-search--btn">Ingresos</button> 
+                <button id ="withdrawal" class="main-search--btn">Gastos</button> 
                 
-                                <button id ="entry" class="main-search--btn">Ingreso</button> 
             </div>
 
             <div>
@@ -57,11 +58,13 @@
                         <p>Filtrar por Categoria</p>
                         <div>
     
-                            <select name="allCategories" id =" ">
-                                <option value="sueldo">Sueldo</option>
+                            <select name="allTypes" id =" ">
+                                <option value=""></option>
+                                <option value="entry">Ingreso</option>
+                                <option value="withdrawal">Gasto</option>
                             </select>
                             <select name="allCategories" id =" ">
-                                <option value="sueldo">Sueldo</option>
+                                <option value=""></option>
                             </select>
                             <button id="filter-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
@@ -129,7 +132,7 @@
             </div>
             <div>
 
-                <div class="entryForm_title">
+                <div class="entryForm_title"  data-type="entry">
                     <p>Nuevo Ingreso</p>
                 </div>
                 <form action="/entry"  method="POST"  class="" id="form">
@@ -143,12 +146,20 @@
                         
                             
                             <label for="category">Categoria</label>
-                            <div>
-                                <input type="text"  name="category" id="category" required >
-                                <span></span>
+                            <div id="dropdown">
+                             <!--    <input type="text"  name="category" id="category" required > -->
+                             <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
+                                <option value=""></option>
+                            </select>
+                            <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                            
+                             <span></span>
                             </div>
-                        
-                            <label for="amount">Monto</label>
+                            <div class="amount-symbol">
+
+                                <label for="amount">Monto</label>
+                                <span>$</span>
+                            </div>
                             <div  >
     
                                 <input  name="amount" id="amount"   >
@@ -167,7 +178,7 @@
             </div>
             <div>
 
-                <div class="entryForm_title">
+                <div class="entryForm_title" data-type="withdrawal">
                     <p>Nuevo Gasto</p>
                 </div>
                 <form action="/withdrawal"  method="POST"  class="" id="form">
@@ -178,10 +189,26 @@
                         
                         
                             <label for="category">Categoria</label>
-                            <input type="text"  name="category" id="category">
-                        
-                            <label for="amount">Monto</label>
-                            <input type="text" name="amount" id="amount" >
+                            <div id="dropdown"> 
+                                <!-- <input type="text"  name="category" id="category" > -->
+                   
+                                    <select name="category" id="category-select-w" placeholder="Selecciona Categoria"> 
+                                        <option value=""></option>
+                                    </select>
+                                    <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                                <span></span>
+                            </div>
+                            <div class="amount-symbol">
+                                <label for="amount">Monto</label>
+                                <span>$</span>
+                            </div> 
+         
+
+                            <div>
+                                <input  name="amount" id="amount"   >
+                                <span></span>
+                            </div>
+
                             <button type="submit" class="editForm-btn-order-delete" id ="btn">Aceptar</button>
                     </div>
                 </form>
@@ -201,5 +228,5 @@
         </div>
     </footer>
         <script src="js/indexScript.js"></script>
-   </BODY>
+        <script src="js/entryFormScript.js" ></script>
 </HTML>

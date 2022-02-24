@@ -109,7 +109,7 @@
         border-radius: 10px;
         padding: 1em;
         margin: 7px;
-        height: 97%;
+        height: 60vh;
     }
     .index-btn button{
         background-color: white;
@@ -229,19 +229,30 @@
     }
     .entryForm_container div{
         display:flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width:100%;
-        justify-content: end;
-        
+        flex-direction: row;
+        /* align-items: center; */
+        width: 94%;
+        justify-content: space-between;
+    }
+    .entryForm_container select{
+        /* background-color: red; */
+        height: 2em;
+        width: 100%;
+        border: none;
+        font-size: 17px;
+    }
+    .amount-symbol{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* background-color: green; */
+        display: inline;
     }
     .danger{
         color:red;
         font-size: 14px;
     }
-    .entryForm_container span{
-
-    }
+  
 
     .entryForm_btn{
         grid-area: 4/2;
@@ -259,6 +270,15 @@
         align-items: center;
         border: 1px solid #b9b7b7;
         border-radius: 10px;
+    }
+    #dropdown{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid grey;
+        align-items: center;
+        color: blue;
     }
     .withdrawal_title{
         background-color: red;
@@ -320,6 +340,7 @@
             margin: 0;
             height: 84vh;
             border: 1px solid #dddddd;
+            /* display: flex; */
         }
         .main_widget-bar--desktop{
             display:flex;

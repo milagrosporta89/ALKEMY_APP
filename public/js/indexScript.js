@@ -11,6 +11,7 @@ const fetchData= async () => {
         const data = await res.json()
         fillValues (data)
         totalBalance (data)
+        withdrowalDropdownFilter (data)   
         
     }catch (error){
         console.log (error)
@@ -24,11 +25,12 @@ const fetchEntry = async () => {
         const res =await fetch ("/entryData")
         const data = await res.json ()
         fillValues (data)
+        withdrowalDropdownFilter (data)
       
     }catch (error){
         console.log (error)
     }finally {
-        console.log ("finally entro data ")
+        console.log ("soy FEtch entry ")
     }
 }
 const entryBtn=document.querySelectorAll("#entry")
@@ -38,6 +40,7 @@ entryBtn.forEach (e => {
         document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
     fetchEntry()  
+    console.log ("aprete boton entry")
 
     })
 })
@@ -51,7 +54,7 @@ const fetchWithdrawal = async () => {
     }catch (error){
         console.log (error)
     }finally {
-        console.log ("finally entro data ")
+        console.log ("soy Fetch witdrawal")
     }
 }
 
@@ -61,6 +64,7 @@ withDrawalBtn.forEach (e => {
         document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
         fetchWithdrawal()  
+        console.log
       
 
     })
@@ -76,14 +80,12 @@ withDrawalBtn.forEach (e => {
 
 /* MOSTRAR TODOS */
 const allTransactions = document.getElementById("all")
-console.log (allTransactions)
+
 allTransactions.addEventListener ("click", (e) => {
     document.querySelectorAll (".list_table").forEach(e=> e.remove()) 
     fetchData()
-    console.log("apretaron todos")
    
 })
-
 
 const showAll = (data) => {
     let localData={}
@@ -118,7 +120,7 @@ const fillValues = (data) => {
     const balance =document.getElementById ("balance")
     const templateRow = document.getElementById ("template-row").content
     const fragment = document.createDocumentFragment()
-    console.log (data.data[0].category.category)
+
 
     let info = 0
     if (data.data.length>10){
@@ -145,9 +147,36 @@ const fillValues = (data) => {
     
     
 }
-/* DROPDOWN MENU */
+/* DROPDOWN Filter */
+const fillDropDown = (data) => {
+     let array =[data]
+     console.log (array)
+     let dataW = array[0].data.filter (e => e.type.includes ("withdrawal"))
+     let dataE = array[0].data.filter (e => e.type.includes ("entry"))
+     console.log (dataW)
+     console.log (dataE[0].category)
+     let newEntry = document.querySelector (".entryForm_title").dataset.type
+     console.log ("soy " + newEntry)
+  
+     
+     if (newEntry == "entry"){
+
+                 for ( i=0; i<dataE.length;i ++) {            
+        
+                    let opt = document.createElement ("option")
+                    opt.textContent = dataE[i].category
+                    document.getElementById ("category-select").appendChild (opt)
+            console.log (dataE[i].category)
+        }
+    }else{
+            for ( i=0; i<dataW.length;i ++) {            
+        
+            let opt = document.createElement ("option")
+            opt.textContent = dataE[i].category
+            document.getElementById ("category-select").appendChild (opt)
+            console.log (dataW[i].category)
+            }
 
 
-
-
- 
+ }
+}
