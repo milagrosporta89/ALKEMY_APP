@@ -1,5 +1,3 @@
-
-
 /* -------------------------------------INDEX SCRIPT -------------------------------  */
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
@@ -14,86 +12,60 @@ const fetchData= async () => {
         fillValues (data)
         totalBalance (data)
         categoryFilter (data)
-  
-
-        
+        populateEntry(data)
+        populateWithdrowal (data)
+        populateAll(data)
+       
     }catch (error){
         console.log (error)
     }finally{
         console.log ("finally")
     }
 };
-/* PETICION INGRESOS ------------------------*/
-const fetchEntry = async () => {
-    try{
-        const res =await fetch ("/entryData")
-        const data = await res.json ()
-        fillValues (data)
+/* FILTRO BOTON INGRESOS */
+const populateEntry = (data) => {
 
-        
-      
-    }catch (error){
-        console.log (error)
-    }finally {
-        console.log ("soy FEtch entry ")
-    }
-}
-const entryBtn=document.querySelectorAll("#entry")
-console.log (entryBtn)
-entryBtn.forEach (e => {
-    e.addEventListener ("click", ()=> {
+    const entryBtn=document.querySelectorAll("#entry")
+
+    entryBtn.forEach (e => {
+        e.addEventListener ("click", ()=> {
         document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
-    fetchEntry()  
-    console.log ("aprete boton entry")
+        let entry=  {data: data.data.filter (e => e.type == "entry")}
+        fillValues(entry)
 
     })
 })
 
-/* PETICION EGRESOS  -------------------------*/
-const fetchWithdrawal = async () => {
-    try{
-        const res =await fetch ("/withdrawalData")
-        const data = await res.json ()
-        fillValues (data)
-    }catch (error){
-        console.log (error)
-    }finally {
-        console.log ("soy Fetch witdrawal")
-    }
+}
+/* FILTRO BOTON GASTOS */
+const populateWithdrowal = (data) => {
+   
+    const withDrawalBtn =document.querySelectorAll("#withdrawal")
+
+    withDrawalBtn.forEach (e => {
+        e.addEventListener("click", () => {
+            document.querySelectorAll (".list_table").forEach(e=> e.remove())  
+            let withdrawal= {data: data.data.filter (e => e.type == "withdrawal")}
+            fillValues(withdrawal)   
+        })
+    })  
 }
 
-const withDrawalBtn =document.querySelectorAll("#withdrawal")
-
-withDrawalBtn.forEach (e => {
-    e.addEventListener("click", () => {
-        document.querySelectorAll (".list_table").forEach(e=> e.remove())  
-
-        fetchWithdrawal()  
-  
-      
-
-    })
-})
 
 /* MOSTRAR TODOS */
-const allTransactions = document.getElementById("all")
 
-allTransactions.addEventListener ("click", (e) => {
-    document.querySelectorAll (".list_table").forEach(e=> e.remove()) 
-    fetchData()
-   
-})
+const populateAll= (data) => {
 
-const showAll = (data) => {
-    let localData={}
-    if(data.data.length>10){
-        localData=data
-      return localData
-    }else{
-        localData.push (data.data)
-      return  localData
-    }
+    const allTransactions = document.querySelectorAll("#all")
+    
+    allTransactions.forEach (e => {
+        e.addEventListener ("click" , ()=> {
+            document.querySelectorAll (".list_table").forEach(e=> e.remove())  
+            fillValues(data)
+        })
+    })
+ 
 }
 
 /* BALANCE TOTAL ---> trae el balance total */ 

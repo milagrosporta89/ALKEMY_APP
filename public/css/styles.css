@@ -34,9 +34,15 @@
 
     /* INDEX */
     .header{
-        display:none;
+        display:block;
+        background-color: #41508e;
+        width: 100%;
+        height: 6vh;
+        line-height: 6vh;
+        text-align: center;
         color: white;
     }
+
     .main{
         display: flex;
         flex-direction: column;
@@ -310,7 +316,7 @@
     @media screen and (min-width: 600px){  
         .header{
             display:block;
-            background-color: #41508e;
+            background-color: #2f4ab9;
             width: 100%;
             height: 6vh;
             line-height: 6vh;
