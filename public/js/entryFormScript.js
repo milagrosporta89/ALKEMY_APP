@@ -11,7 +11,7 @@ const fetchCategory= async () => {
         const data = await res.json()
         fillDropDownEntry (data)
         fillDropDownWithdrawal (data)
-
+        typeDropdown (data)
 
         
     }catch (error){
@@ -79,6 +79,49 @@ const fillDropDownWithdrawal = (data) => {
     }
 } */
 
+const typeDropdown = (data) =>{
+    let categoryType=document.getElementById ("type-dropdown")
+    categoryType.addEventListener ("change",(e)=> {
+
+        let dataW = data.data.filter(e => e.type.includes ("withdrawal"))
+        let dataE = data.data.filter(e => e.type.includes ("entry"))
+       
+        
+        document.querySelectorAll (".allCategories").forEach(e=> e.remove())
+        if (categoryType.value == "entry") {
+            dataE.forEach ((e , i) => {
+      
+                let opt = document.createElement ("option")
+                opt.textContent = e.category
+                opt.classList.add("allCategories")
+                document.getElementById ("category-filter").appendChild (opt)
+                    }
+                    )
+         
+        }else{dataW.forEach ((e , i) => {
+      
+            let opt = document.createElement ("option")
+            opt.textContent = e.category
+            opt.classList.add("allCategories")
+            document.getElementById ("category-filter").appendChild (opt)
+                }
+                )
+
+
+        }
+        
+
+
+
+        
+
+
+})
+    
+    
+
+
+}
 
 
   

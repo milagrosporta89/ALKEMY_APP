@@ -1,3 +1,5 @@
+
+
 /* -------------------------------------INDEX SCRIPT -------------------------------  */
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
@@ -11,7 +13,8 @@ const fetchData= async () => {
         const data = await res.json()
         fillValues (data)
         totalBalance (data)
-        withdrowalDropdownFilter (data)   
+  
+
         
     }catch (error){
         console.log (error)
@@ -25,7 +28,8 @@ const fetchEntry = async () => {
         const res =await fetch ("/entryData")
         const data = await res.json ()
         fillValues (data)
-        withdrowalDropdownFilter (data)
+
+        
       
     }catch (error){
         console.log (error)
@@ -64,7 +68,7 @@ withDrawalBtn.forEach (e => {
         document.querySelectorAll (".list_table").forEach(e=> e.remove())  
 
         fetchWithdrawal()  
-        console.log
+  
       
 
     })
@@ -112,6 +116,9 @@ function reverseDate(str) {
     return str.split (["-"],[3]).reverse().join("-")
 }
 
+const categoryFilter = (data) = {
+
+}
 
 /* FILAS TABLA ---> POPULATE*/
 
@@ -147,36 +154,4 @@ const fillValues = (data) => {
     
     
 }
-/* DROPDOWN Filter */
-const fillDropDown = (data) => {
-     let array =[data]
-     console.log (array)
-     let dataW = array[0].data.filter (e => e.type.includes ("withdrawal"))
-     let dataE = array[0].data.filter (e => e.type.includes ("entry"))
-     console.log (dataW)
-     console.log (dataE[0].category)
-     let newEntry = document.querySelector (".entryForm_title").dataset.type
-     console.log ("soy " + newEntry)
-  
-     
-     if (newEntry == "entry"){
 
-                 for ( i=0; i<dataE.length;i ++) {            
-        
-                    let opt = document.createElement ("option")
-                    opt.textContent = dataE[i].category
-                    document.getElementById ("category-select").appendChild (opt)
-            console.log (dataE[i].category)
-        }
-    }else{
-            for ( i=0; i<dataW.length;i ++) {            
-        
-            let opt = document.createElement ("option")
-            opt.textContent = dataE[i].category
-            document.getElementById ("category-select").appendChild (opt)
-            console.log (dataW[i].category)
-            }
-
-
- }
-}
