@@ -23,11 +23,12 @@ const mainController = {
             date:req.body.date,
             id_category: result.id ,
             amount: req.body.amount,
-            type: "income"})
+            type: "entry"})
  
         }).then ((resultado) =>{ 
 
-            res.render("index")
+            res.redirect("/")
+            
         })
            
 
@@ -43,7 +44,7 @@ const mainController = {
   
          }).then ((resultado) =>{ 
  
-             res.render("index")
+             res.redirect ("/")
          })
             
  

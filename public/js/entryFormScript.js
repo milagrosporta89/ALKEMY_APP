@@ -20,14 +20,13 @@ const fetchCategory= async () => {
         console.log ("finally")
     }
 };
-
+/* POPULATE SELECT CATEGORY INGRESOS */
  const fillDropDownEntry= (data) => {
      let array =[data]
      let dataE = array[0].data.filter (e => e.type.includes ("entry"))    
      let newEntry = document.querySelector (".entryForm_title").dataset.type 
      
      if (newEntry == "entry"){
-
                  for ( i=0; i<dataE.length;i ++) {            
         
                     let opt = document.createElement ("option")
@@ -37,14 +36,10 @@ const fetchCategory= async () => {
         }
     }
     }
-
+/* POPULATE SELECT CATEGORY GASTOS  */
 const fillDropDownWithdrawal = (data) => {
     let array =[data]
-
-    let dataW = array[0].data.filter (e => e.type.includes ("withdrawal"))
-  
-
-   
+    let dataW = array[0].data.filter (e => e.type.includes ("withdrawal"))  
     let newEntry = document.querySelector ("[data-type=withdrawal]").dataset.type
     
     if (newEntry == "withdrawal"){
@@ -58,26 +53,7 @@ const fillDropDownWithdrawal = (data) => {
         }
     }
 }
-/* const fillDropDownWithdrawal = (data) => {
-    let array =[data]
-
-    let dataW = array[0].data.filter (e => e.type.includes ("withdrawal"))
-  
-
-   
-    let newEntry = document.querySelector ("[data-type=withdrawal]").dataset.type
-    
-    if (newEntry == "withdrawal"){
-
-        for ( i=0; i<dataW.length;i ++) {            
-
-        let opt = document.createElement ("option")
-        opt.textContent = dataW[i].category
-        document.getElementById ("category-select-w").appendChild (opt)
-     
-        }
-    }
-} */
+/* POPULATE SELECT SEGUN TIPO */
 
 const typeDropdown = (data) =>{
     let categoryType=document.getElementById ("type-dropdown")
@@ -106,20 +82,9 @@ const typeDropdown = (data) =>{
             document.getElementById ("category-filter").appendChild (opt)
                 }
                 )
-
-
-        }
-        
-
-
-
-        
-
-
+        }            
 })
-    
-    
-
+  
 
 }
 

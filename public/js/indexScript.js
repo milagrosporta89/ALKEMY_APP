@@ -13,6 +13,7 @@ const fetchData= async () => {
         const data = await res.json()
         fillValues (data)
         totalBalance (data)
+        categoryFilter (data)
   
 
         
@@ -63,6 +64,7 @@ const fetchWithdrawal = async () => {
 }
 
 const withDrawalBtn =document.querySelectorAll("#withdrawal")
+
 withDrawalBtn.forEach (e => {
     e.addEventListener("click", () => {
         document.querySelectorAll (".list_table").forEach(e=> e.remove())  
@@ -73,14 +75,6 @@ withDrawalBtn.forEach (e => {
 
     })
 })
-/* withDrawalBtn.addEventListener("click" ,()=> {
-    document.querySelectorAll (".list_table").forEach(e=> e.remove())  
-
-    fetchWithdrawal()  
-  
-}) */
-/* -------------------------AUXILIARES----------------------------------------- */
-
 
 /* MOSTRAR TODOS */
 const allTransactions = document.getElementById("all")
@@ -112,15 +106,28 @@ const totalBalance =  (data) => {
     
     document.getElementById("total").textContent= "$ " + contador
 }
+
+/* BUSQUEDA SEGUN FILTRO */
+
+const categoryFilter = (data) => {
+
+    let filterBtn = document.getElementById ("filter-btn")  
+    filterBtn.addEventListener ("click", ()=>{
+        let typeDropdown = document.getElementById ("type-dropdown").value
+        let categoryDropdown = document.getElementById ("category-filter")
+        let categoryOption = categoryDropdown.options [categoryDropdown.selectedIndex].text
+        let filteredData = {data :data.data.filter (e => e.category.type == typeDropdown && e.category.category == categoryOption)}
+        document.querySelectorAll (".list_table").forEach(e=> e.remove()) 
+        fillValues (filteredData)
+    })
+
+}
+
+
+/* FILAS TABLA ---> POPULATE*/
 function reverseDate(str) {
     return str.split (["-"],[3]).reverse().join("-")
 }
-
-const categoryFilter = (data) = {
-
-}
-
-/* FILAS TABLA ---> POPULATE*/
 
 const fillValues = (data) => {
     

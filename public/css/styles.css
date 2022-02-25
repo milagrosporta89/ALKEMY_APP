@@ -126,7 +126,7 @@
     }
     #list_item{
         display: grid;
-        grid-template-columns: 1fr 2fr 0.7fr;
+        grid-template-columns: 1fr 1.8fr 0.9fr;
         justify-content: space-between;
         border-bottom: 1px solid #cacbca;
         margin: 4px;
