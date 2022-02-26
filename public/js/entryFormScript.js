@@ -12,6 +12,7 @@ const fetchCategory= async () => {
         fillDropDownEntry (data)
         fillDropDownWithdrawal (data)
         typeDropdown (data)
+        localStorage.setItem ("category", JSON.stringify (data))
 
         
     }catch (error){
@@ -84,9 +85,8 @@ const typeDropdown = (data) =>{
                 )
         }            
 })
-  
-
 }
+
 
 
   

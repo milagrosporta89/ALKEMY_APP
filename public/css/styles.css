@@ -33,16 +33,11 @@
     }
 
     /* INDEX */
+    
     .header{
-        display:block;
-        background-color: #41508e;
-        width: 100%;
-        height: 6vh;
-        line-height: 6vh;
-        text-align: center;
+        display:none;
         color: white;
     }
-
     .main{
         display: flex;
         flex-direction: column;
@@ -211,6 +206,9 @@
         font-weight: bold;
     }
     /* ENTRY FORM */
+    .header--forms{
+
+    }
     .entryForm_container{
         width: 100%;
         display:grid;
@@ -316,7 +314,7 @@
     @media screen and (min-width: 600px){  
         .header{
             display:block;
-            background-color: #2f4ab9;
+            background-color: #41508e;
             width: 100%;
             height: 6vh;
             line-height: 6vh;
@@ -356,6 +354,13 @@
             width: 50%;
             margin-right: 2%;
             ;
+        }
+        .categoryEdit_btn{
+            margin: 3px 0px;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #817777;
+
         }
         .index-btn button{
             display:none

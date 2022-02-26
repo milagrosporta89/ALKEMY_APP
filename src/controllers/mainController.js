@@ -99,7 +99,7 @@ const mainController = {
             category: req.body.category, 
             type: req.body.type
         }) 
-        res.render ("entryForm")
+        res.render ("index")
     }
 }   
 

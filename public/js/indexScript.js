@@ -15,6 +15,8 @@ const fetchData= async () => {
         populateEntry(data)
         populateWithdrowal (data)
         populateAll(data)
+        editBtnEvent(data)
+
        
     }catch (error){
         console.log (error)
@@ -120,7 +122,8 @@ const fillValues = (data) => {
         clone.querySelector("#date").textContent =reverseDate (data.data[i].date)
         clone.querySelector("#category").textContent =  "  |  " +  data.data[i].category.category
         clone.querySelector("#amount").textContent = "$ " + data.data[i].amount
-        clone.querySelector("#edit-btn").setAttribute ("href", "/edit/" + data.data[i].id)
+        clone.querySelector("#edit-btn").setAttribute ("data-id", data.data[i].id) 
+   /*      clone.querySelector("#edit-btn").setAttribute ("href", "/edit/" + data.data[i].id)  */
         if(data.data[i].amount < 0){
             clone.querySelector("#amount").classList.add ("negative")
         }else{
@@ -133,4 +136,64 @@ const fillValues = (data) => {
     
     
 }
+/*EDIT FORM  ---- COMPLETAR CAMPOS CON INFO DE DATA SEGUN ID*/
+const dateEdit = document.getElementById ("dateEdit")
+const categoryEdit = document.getElementById ("categoryEdit")
+const amountEdit = document.getElementById ("amountEdit")
+const storedData = JSON.parse (localStorage.getItem ("category"))
 
+const editBtnEvent = (data) => {
+    const editEvent = document.querySelectorAll (".edit_btn")
+    editEvent.forEach (e =>{ 
+                e.addEventListener("click", ()=> {
+                
+                    let idInfo= e.getAttribute("data-id")        
+                    let filteredData = data.data.filter (e => e.id ==idInfo)  
+                    let optionsArray= storedData.data.filter (e=>e.type == filteredData[0].type)
+                    optionsArray.forEach ((e)=> {
+                        
+                                let opt = document.createElement ("option")
+                                opt.textContent = e.category
+                                opt.classList.add("allCategories")
+                                document.getElementById ("categoryEdit").appendChild (opt)
+                                    
+                    }) 
+
+                    dateEdit.value = filteredData[0].date
+                    categoryEdit.value = filteredData[0].category.category
+                    amountEdit.value = filteredData[0].amount
+                    localStorage.setItem ("idEdit",filteredData[0].id)   
+         
+
+            })
+        })
+        
+
+}
+/* ENVIO DE FORMULARIO DE EDICION  */
+const updateData = document.getElementById ("update-btn")
+
+updateData.addEventListener ("click", (e) =>  {
+    e.preventDefault ()
+    let id= localStorage.getItem ("idEdit")
+    const data1 =   { 
+        id: localStorage.getItem ("idEdit"),
+        date: dateEdit.value,
+        category: categoryEdit.value,
+        amount: amountEdit.value,
+        }
+
+    const endpoint2= `/edit/${id}`;
+    
+    fetch (endpoint2,{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(data1)
+
+    })
+    .then(response => response.json())    
+    .then(data => window.location.href = data.redirect)
+    .catch(error => console.log (error))
+ 
+  })

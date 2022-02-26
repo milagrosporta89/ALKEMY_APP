@@ -112,7 +112,7 @@
                                  <p id="category">Comida</p>
                                  <p id="amount">$1500</p>
                              </div>
-                             <a type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></a>
+                             <button type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
                      </div>                   
                  </template>
                  <a type="button" class="see-more_btn" >Ver mas >></a>
@@ -151,7 +151,7 @@
                              <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
                                 <option value=""></option>
                             </select>
-                            <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                            <a type="button" class="categoryEdit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
                             
                              <span></span>
                             </div>
@@ -195,7 +195,7 @@
                                     <select name="category" id="category-select-w" placeholder="Selecciona Categoria"> 
                                         <option value=""></option>
                                     </select>
-                                    <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                                    <a type="button" class="categoryEdit_btn" id="addCategory-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
                                 <span></span>
                             </div>
                             <div class="amount-symbol">
@@ -222,6 +222,7 @@
      </div>
 
  </div>
+ <%- include ("editFormTest.ejs")%>
     <footer>
         <div class="header">
       
@@ -229,4 +230,5 @@
     </footer>
         <script src="js/indexScript.js"></script>
         <script src="js/entryFormScript.js" ></script>
+
 </HTML>

@@ -41,6 +41,7 @@ const editValues = (info) => {
         }
     }
 }
+
 /* BORRAR ENTRADA  */
 const deleteData= document.getElementById("delete-btn")
 
