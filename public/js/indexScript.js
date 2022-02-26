@@ -146,7 +146,8 @@ const editBtnEvent = (data) => {
     const editEvent = document.querySelectorAll (".edit_btn")
     editEvent.forEach (e =>{ 
                 e.addEventListener("click", ()=> {
-                
+                    document.getElementById ("edit-modal").classList.add("show")
+                    
                     let idInfo= e.getAttribute("data-id")        
                     let filteredData = data.data.filter (e => e.id ==idInfo)  
                     let optionsArray= storedData.data.filter (e=>e.type == filteredData[0].type)
@@ -170,7 +171,7 @@ const editBtnEvent = (data) => {
         
 
 }
-/* ENVIO DE FORMULARIO DE EDICION  */
+/* ENVIO ACTUALIZAR DE FORMULARIO DE EDICION  */
 const updateData = document.getElementById ("update-btn")
 
 updateData.addEventListener ("click", (e) =>  {
@@ -197,3 +198,61 @@ updateData.addEventListener ("click", (e) =>  {
     .catch(error => console.log (error))
  
   })
+  /* ENVIO ELIMINAR ENTRADA  */
+const deleteData= document.getElementById("delete-btn")
+
+deleteData.addEventListener("click", (e)=>{
+    console.log ("soy delet btn")
+    e.preventDefault ()
+    let id= localStorage.getItem ("idEdit")
+    const endpoint= `/edit/${id}`;
+    fetch(endpoint, {
+        method: "DELETE"
+    })
+    .then(response => response.json())    
+    .then(data => window.location.href = data.redirect)
+    .catch(error => console.log (error))
+})
+  /* CERRAR FORMULARIO DE EDICION */
+ const closeBtn =  document.getElementById ("close")
+
+     closeBtn.addEventListener ("click", e => {   
+         document.getElementById ("edit-modal").classList.remove("show")
+
+ })
+    
+
+ /* MODAL ENTRY-BTN */
+ const entryModalTrigger = document.getElementById ("entry_btn")
+ const widgetBar = document.getElementById ("widget-modal")
+ const entryModal = document.getElementById ("entry-modal")
+ const entryModalClose= document.getElementById ("entry-modal--close")
+ const withdrawalModal = document.getElementById ("withdrawal-modal")
+ const withdrawalModalClose = document.getElementById ("withdrawal-modal--close")
+ 
+
+entryModalTrigger.addEventListener ("click", e=> {
+
+            widgetBar.classList.add ("edition","modal-widget","show")
+            entryModal.getElementsByTagName ("button")[0].classList.remove ("hide")
+            entryModal.classList.add("edition")
+            withdrawalModal.classList.add ("hide")
+ })
+ entryModalClose.addEventListener ("click", e => {
+     widgetBar.classList.remove("show","edition","modal-widget")
+     entryModal.classList.remove ("edition")
+     withdrawalModal.classList.remove ("hide")
+ })
+ /* MODAL WITHDRAWAL-BTN */
+ const withdrawalModalTrigger = document.getElementById ("withdrawal_btn")
+ withdrawalModalTrigger.addEventListener ("click", e=> {
+    widgetBar.classList.add ("edition","modal-widget","show")
+    withdrawalModal.getElementsByTagName ("button")[0].classList.remove ("hide")
+    withdrawalModal.classList.add("edition")
+    entryModal.classList.add ("hide")
+ })
+ withdrawalModalClose.addEventListener ("click", e => {
+    widgetBar.classList.remove("show","edition","modal-widget")
+    withdrawalModal.classList.remove ("edition")
+    entryModal.classList.remove("hide")
+})

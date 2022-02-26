@@ -16,23 +16,21 @@
     <title>Mi billetera</title>
    </HEAD>
 
-   <BODY>
+   <BODY class ="body-wrapper">
     <header>
-        <div class="header">
+        <div class="header hide form">
             <p>MI BILLETERA</p>
         </div>
     </header>
  
         <div class="main_form">
-            <div class="main_container">
-
-                <div class="main_header">
-                    <i class="fa-solid fa-bars"></i>
-                    <p>MI BILLETERA</p> 
-                    <i class="fa-solid fa-power-off"></i>             
+            <div class="entryForm_mainContainer"> <!-- widtget ingreso -->
+                <div class="main_header-widget--desktop">
+                    
                 </div>
-                <div class="entryForm_mainContainer">
-                    <div class="entryForm_title" data-type="entry">
+                <div>
+    
+                    <div class="entryForm_title"  data-type="entry">
                         <p>Nuevo Ingreso</p>
                     </div>
                     <form action="/entry"  method="POST"  class="" id="form">
@@ -42,119 +40,42 @@
                                 <div>
                                     <input type="date" name="date" id="date" required  >
                                     <span></span>
-                                </div>                         
-                                <label for="category">Categoria</label>
-                                <div id="dropdown"> 
-                                    <!-- <input type="text"  name="category" id="category" > -->
-                       
-                                        <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
-                                        </select>
-                                        <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                                </div>
                             
-
-                                    <span></span>
+                                
+                                <label for="category">Categoria</label>
+                                <div id="dropdown">
+                                 <!--    <input type="text"  name="category" id="category" required > -->
+                                 <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
+                                    <option value=""></option>
+                                </select>
+                                <a type="button" class="categoryEdit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                                
+                                 <span></span>
                                 </div>
                                 <div class="amount-symbol">
+    
                                     <label for="amount">Monto</label>
                                     <span>$</span>
-                                </div>                          
-                                <div>
+                                </div>
+                                <div  >
+        
                                     <input  name="amount" id="amount"   >
                                     <span></span>
                                 </div>
                                 <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
                         </div>
-                        <a type="button" href ="/"class="see-more_btn" > &lt;&lt;Volver</a>
-
+                  
+        
                     </form>
                 </div>
-              
+                </div>
         </div>
-        <div>
-
-                <div class="entryForm_title"  data-type="entry">
-                    <p>Nuevo Ingreso</p>
-                </div>
-                <form action="/entry"  method="POST"  class="" id="form">
-                    <div class="entryForm_container">
-                            
-                            <label for="date">Fecha </label>
-                            <div>
-                                <input type="date" name="date" id="date" required  >
-                                <span></span>
-                            </div>
-                        
-                            
-                            <label for="category">Categoria</label>
-                            <div id="dropdown">
-                             <!--    <input type="text"  name="category" id="category" required > -->
-                             <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
-                                <option value=""></option>
-                            </select>
-                            <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
-                            
-                             <span></span>
-                            </div>
-                            <div class="amount-symbol">
-
-                                <label for="amount">Monto</label>
-                                <span>$</span>
-                            </div>
-                            <div  >
-    
-                                <input  name="amount" id="amount"   >
-                                <span></span>
-                            </div>
-                            <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
-                    </div>
-              
-    
-                </form>
-            </div>
+       
             <!-- prueba -->
-            <div>
-
-                <div class="entryForm_title"  data-type="entry">
-                    <p>Nuevo Ingreso</p>
-                </div>
-                <form action="/entry"  method="POST"  class="" id="form">
-                    <div class="entryForm_container">
-                            
-                            <label for="date">Fecha </label>
-                            <div>
-                                <input type="date" name="date" id="date" required  >
-                                <span></span>
-                            </div>
-                        
-                            
-                            <label for="category">Categoria</label>
-                            <div id="dropdown">
-                             <!--    <input type="text"  name="category" id="category" required > -->
-                             <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
-                                <option value=""></option>
-                            </select>
-                            <a type="button" class="edit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
-                            
-                             <span></span>
-                            </div>
-                            <div class="amount-symbol">
-
-                                <label for="amount">Monto</label>
-                                <span>$</span>
-                            </div>
-                            <div  >
-    
-                                <input  name="amount" id="amount"   >
-                                <span></span>
-                            </div>
-                            <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
-                    </div>
-              
-    
-                </form>
-            </div>
+     
         <footer>
-            <div class="header">
+            <div class="header hide form">
 
             </div>
         </footer>

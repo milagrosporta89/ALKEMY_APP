@@ -1,7 +1,8 @@
-<!DOCTYPE HTML >
+<!DOCTYPE HTML>
 <HTML>
-   <HEAD>   
- 
+
+<HEAD>
+
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/normalize.css">
 
@@ -10,225 +11,232 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ac84a17cfe.js" crossorigin="anonymous"></script>
-    
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi billetera</title>
-   </HEAD>
+</HEAD>
 
-   <BODY>
+<BODY class="body-wrapper">
 
     <header>
-        <div class="header">
+        <div class="header hide">
             <p>MI BILLETERA</p>
         </div>
     </header>
- <div class = " main_body--desktop">
-     <div class="main_search--desktop"><!-- barra lateral blanca con botones y busquedas   -->
-        <div>
-            <img src="/img/avatar.jpg" alt="">
-            <p>yo@gmail.com</p>
-        </div>
-
-        <div class="search-bar--desktop">
-            <form action="" method="GET" class="">
-                <div class="search-bar--input">
-                    <label for="search" ><i class="fa-solid fa-magnifying-glass"></i></label>
-                    <input type="text" placeholder="Search"></input>
-                    
-                </div>
-            </form>
-        </div>
-
-        <div class="search-bar--container">
-            <br>
-            <p>Mis Movimientos</p>
-            <div >
-                <button id ="all" >Todos</button>
-                
-  
-                <button id ="entry" class="main-search--btn">Ingresos</button> 
-                <button id ="withdrawal" class="main-search--btn">Gastos</button> 
-                
+    <div class=" main_body--desktop">
+        <div class="main_search--desktop">
+            <!-- barra lateral blanca con botones y busquedas   -->
+            <div>
+                <img src="/img/avatar.jpg" alt="">
+                <p>yo@gmail.com</p>
             </div>
 
-            <div>
-                <div class="search-bar--filter">
-                    <!-- <form action="" method=""> -->
+            <div class="search-bar--desktop">
+                <form action="" method="GET" class="">
+                    <div class="search-bar--input">
+                        <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                        <input type="text" placeholder="Search"></input>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="search-bar--container">
+                <br>
+                <p>Mis Movimientos</p>
+                <div>
+                    <button id="all">Todos</button>
+
+                    <button id="entry" class="main-search--btn">Ingresos</button>
+                    <button id="withdrawal" class="main-search--btn">Gastos</button>
+
+                </div>
+
+                <div>
+                    <div class="search-bar--filter">
+                        <!-- <form action="" method=""> -->
                         <p>Filtrar por Categoria</p>
                         <div>
-    
-                            <select name="allTypes" id ="type-dropdown">
+
+                            <select name="allTypes" id="type-dropdown">
                                 <option value=""></option>
-                                <option value="entry" >Ingreso</option>
-                                <option value="withdrawal" >Gasto</option>
+                                <option value="entry">Ingreso</option>
+                                <option value="withdrawal">Gasto</option>
                             </select>
-                            <select name="allCategories" id ="category-filter" class="">
+                            <select name="allCategories" id="category-filter" class="">
                                 <option value=""></option>
                             </select>
                             <button id="filter-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-                 <!--    </form> -->
+                        <!--    </form> -->
 
+                    </div>
                 </div>
+
             </div>
 
         </div>
+        <div class="main">
+            <!-- BALANCE  -->
+            <div class="main_container-index ">
+                <div class="wrapper">
 
-     </div>
-     <div class="main"><!-- BALANCE  -->
-         <div class="main_container-index ">
-             <div class="wrapper">
+                    <div class="main_header">
 
-                 <div class="main_header">
-                   
-                     <i class="fa-solid fa-bars"></i>
-                     <p>MI BILLETERA</p> 
-                     <i class="fa-solid fa-power-off"></i>      
-                 </div>
-                 <div class="main_saldo">
-                     <p>Balance Total</p>
-                     <h2 id="total">$3500</h2>
-                 </div>
-             </div>
-             <div class="main_list-container">
-                 <div >
-                     <p>Ultimos movimientos</p>
-                     <br>
-                     <div class="index-btn">
-                         <button id ="all">Todos</button>
-                         <button id ="entry">Ingreso</button>
-                         <button id = "withdrawal">Egreso</button>
- 
-                     </div>
-                     <br>
-                 </div>
-                 <!-- item list -->
-                 <section class=" " id="balance"> </section>
-                 <template class="main_list" id="template-row"> 
-                     <div class="list_table">
-                             <div id="list_item">
-                                 <p id="date">17/2/2022</p>
-                                 <p id="category">Comida</p>
-                                 <p id="amount">$1500</p>
-                             </div>
-                             <button type="button" class="edit_btn" id="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
-                     </div>                   
-                 </template>
-                 <a type="button" class="see-more_btn" >Ver mas >></a>
-             </div>
-             <!-- buttons -->
-             <div class="main_btn">
-                 <a type="button" class="entry_btn" href="/entry">+ </a>
-                 <a type="button" class="withdrawal_btn" href="/withdrawal" >-</a>
-
-             </div>
-             </div>
-     </div>
-     <div class="main_widget-bar--desktop"><!--WIDGET de ingreso y egreso  -->
-        <div class="entryForm_mainContainer"> <!-- widtget ingreso -->
-            <div class="main_header-widget--desktop">
-                
-            </div>
-            <div>
-
-                <div class="entryForm_title"  data-type="entry">
-                    <p>Nuevo Ingreso</p>
+                        <i class="fa-solid fa-bars"></i>
+                        <p>MI BILLETERA</p>
+                        <i class="fa-solid fa-power-off"></i>
+                    </div>
+                    <div class="main_saldo">
+                        <p>Balance Total</p>
+                        <h2 id="total">$3500</h2>
+                    </div>
                 </div>
-                <form action="/entry"  method="POST"  class="" id="form">
-                    <div class="entryForm_container">
-                            
+                <div class="main_list-container">
+                    <div>
+                        <p>Ultimos movimientos</p>
+                        <br>
+                        <div class="index-btn">
+                            <button id="all">Todos</button>
+                            <button id="entry">Ingreso</button>
+                            <button id="withdrawal">Egreso</button>
+
+                        </div>
+                        <br>
+                    </div>
+                    <!-- item list -->
+                    <section class=" " id="balance"> </section>
+                    <template class="main_list" id="template-row">
+                        <div class="list_table">
+                            <div id="list_item">
+                                <p id="date">17/2/2022</p>
+                                <p id="category">Comida</p>
+                                <p id="amount">$1500</p>
+                            </div>
+                            <button type="button" class="edit_btn" id="edit-btn"><i
+                                    class="fa-regular fa-pen-to-square"></i></button>
+                        </div>
+                    </template>
+                    <a type="button" class="see-more_btn">Ver mas >></a>
+                </div>
+                <!-- buttons -->
+                <div class="main_btn">
+                    <a type="button" class="entry_btn"  id="entry_btn">+ </a>
+                    <a type="button" class="withdrawal_btn" id="withdrawal_btn" >-</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="main_widget-bar--desktop" id="widget-modal">
+            <!--WIDGET de ingreso y egreso  -->
+            <div class="entryForm_mainContainer" id="entry-modal">
+                <!-- widtget ingreso -->
+                <div class="main_header-widget--desktop">
+                    <button class="hide" id="entry-modal--close">Cerrar  <i class="fas fa-times"></i></button>
+                </div>
+                <div>
+
+                    <div class="entryForm_title" data-type="entry">
+                        <p>Nuevo Ingreso</p>
+                    </div>
+                    <form action="/entry" method="POST" class="" id="form">
+                        <div class="entryForm_container">
+
                             <label for="date">Fecha </label>
                             <div>
-                                <input type="date" name="date" id="date" required  >
+                                <input type="date" name="date" id="date" required>
                                 <span></span>
                             </div>
-                        
-                            
+
+
                             <label for="category">Categoria</label>
                             <div id="dropdown">
-                             <!--    <input type="text"  name="category" id="category" required > -->
-                             <select name="category" id="category-select" placeholder="Selecciona Categoria"> 
-                                <option value=""></option>
-                            </select>
-                            <a type="button" class="categoryEdit_btn" id="edit-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
-                            
-                             <span></span>
+                                <!--    <input type="text"  name="category" id="category" required > -->
+                                <select name="category" id="category-select" placeholder="Selecciona Categoria">
+                                    <option value=""></option>
+                                </select>
+                                <a type="button" class="categoryEdit_btn" id="edit-btn" href="/categoryEdit"><i
+                                        class="fas fa-plus-circle"></i></a>
+
+                                <span></span>
                             </div>
                             <div class="amount-symbol">
 
                                 <label for="amount">Monto</label>
                                 <span>$</span>
                             </div>
-                            <div  >
-    
-                                <input  name="amount" id="amount"   >
+                            <div>
+
+                                <input name="amount" id="amount">
                                 <span></span>
                             </div>
-                            <button type="submit" class="editForm-btn-order-delete " id ="btn" >Aceptar</button>
-                    </div>
-              
-    
-                </form>
-            </div>
-            </div>
-        <div class="entryForm_mainContainer"><!-- widget egreso -->
-            <div class="main_header-widget--desktop">
-                
-            </div>
-            <div>
+                            <button type="submit" class="editForm-btn-order-delete " id="btn">Aceptar</button>
+                        </div>
 
-                <div class="entryForm_title" data-type="withdrawal">
-                    <p>Nuevo Gasto</p>
+
+                    </form>
                 </div>
-                <form action="/withdrawal"  method="POST"  class="" id="form">
-                    <div class="entryForm_container">
-                            
+            </div>
+            <div class="entryForm_mainContainer" id="withdrawal-modal">
+                <!-- widget egreso -->
+                <div class="main_header-widget--desktop">
+                    <button class="hide" id="withdrawal-modal--close">Cerrar  <i class="fas fa-times"></i></button>
+                </div>
+                <div>
+
+                    <div class="entryForm_title" data-type="withdrawal">
+                        <p>Nuevo Gasto</p>
+                    </div>
+                    <form action="/withdrawal" method="POST" class="" id="form">
+                        <div class="entryForm_container">
+
                             <label for="date">Fecha </label>
                             <input type="date" name="date" id="date">
-                        
-                        
+
+
                             <label for="category">Categoria</label>
-                            <div id="dropdown"> 
+                            <div id="dropdown">
                                 <!-- <input type="text"  name="category" id="category" > -->
-                   
-                                    <select name="category" id="category-select-w" placeholder="Selecciona Categoria"> 
-                                        <option value=""></option>
-                                    </select>
-                                    <a type="button" class="categoryEdit_btn" id="addCategory-btn" href = "/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+
+                                <select name="category" id="category-select-w" placeholder="Selecciona Categoria">
+                                    <option value=""></option>
+                                </select>
+                                <a type="button" class="categoryEdit_btn" id="addCategory-btn" href="/categoryEdit"><i
+                                        class="fas fa-plus-circle"></i></a>
                                 <span></span>
                             </div>
                             <div class="amount-symbol">
                                 <label for="amount">Monto</label>
                                 <span>$</span>
-                            </div> 
-         
+                            </div>
+
 
                             <div>
-                                <input  name="amount" id="amount"   >
+                                <input name="amount" id="amount">
                                 <span></span>
                             </div>
 
-                            <button type="submit" class="editForm-btn-order-delete" id ="btn">Aceptar</button>
-                    </div>
-                </form>
-    
+                            <button type="submit" class="editForm-btn-order-delete" id="btn">Aceptar</button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
-            </div>
 
 
 
 
-     </div>
-
- </div>
- <%- include ("editFormTest.ejs")%>
-    <footer>
-        <div class="header">
-      
         </div>
-    </footer>
+
+    </div>
+    <%- include ("partials/editFormTest.ejs")%>
+        <footer>
+            <div class="header hide">
+
+            </div>
+        </footer>
         <script src="js/indexScript.js"></script>
-        <script src="js/entryFormScript.js" ></script>
+        <script src="js/entryFormScript.js"></script>
 
 </HTML>

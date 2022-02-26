@@ -10,11 +10,11 @@ const mainController = {
 
     index: (req, res) => {
         res.render("index");
-},
+        },
 
     entry: (req,res) => {
         res.render("entryForm")
-    },
+        },
   
     entryForm:(req,res)=> {
        db.Category.findOne({where : {category : req.body.category}})
@@ -26,13 +26,11 @@ const mainController = {
             type: "entry"})
  
         }).then ((resultado) =>{ 
-
-            res.redirect("/")
-            
+            res.redirect("/")            
         })
            
-
         }, 
+    
     withdrawalForm:(req,res)=> {
         db.Category.findOne({where : {category : req.body.category}})
         .then ((result )=> {
@@ -42,22 +40,20 @@ const mainController = {
              amount: req.body.amount *-1,
              type: "withdrawal"})
   
-         }).then ((resultado) =>{ 
- 
+         }).then ((resultado) =>{  
              res.redirect ("/")
-         })
-            
- 
-         }, 
+         })           
+        }, 
           
     withdrawal: (req,res) =>{
         res.render ("withdrawalForm")
-    },
+        },
      edit: (req,res) => {
 
         res.render("editForm")
-    },
+        },
     delete: (req,res) => {
+        
       let id = req.params.id
 
       db.Transaction.destroy({

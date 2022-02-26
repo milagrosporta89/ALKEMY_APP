@@ -46,17 +46,19 @@ const editValues = (info) => {
 const deleteData= document.getElementById("delete-btn")
 
 deleteData.addEventListener("click", (e)=>{
+    console.log ("soy delet btn")
+    e.preventDefault ()
+    let id= localStorage.getItem ("idEdit")
     const endpoint= `/edit/${id}`;
     fetch(endpoint, {
         method: "DELETE"
     })
     .then(response => response.json())    
-  /*   .then ( data => console.log (data)) */
     .then(data => window.location.href = data.redirect)
     .catch(error => console.log (error))
 })
 /* EDITAR ENTRADA  */
-const updateData = document.getElementById ("update-btn")
+/* const updateData = document.getElementById ("update-btn")
 
 updateData.addEventListener ("click", (e) =>  {
     const data1 =   { 
@@ -65,8 +67,8 @@ updateData.addEventListener ("click", (e) =>  {
         amount: amount.value,
         type: "entry"
         }
-    const endpoint2= `/edit/${id}`;
-    fetch (endpoint2,{
+    
+    fetch (endpoint,{
         method:"POST",
         headers: {
             'Content-Type': 'application/json'},
@@ -77,7 +79,7 @@ updateData.addEventListener ("click", (e) =>  {
     .then(data => window.location.href = data.redirect)
     .catch(error => console.log (error))
 
-  })
+  }) */
 
 
 
