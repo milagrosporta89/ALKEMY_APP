@@ -1,4 +1,6 @@
+
 /* -------------------------------------INDEX SCRIPT -------------------------------  */
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
 
@@ -16,12 +18,9 @@ const fetchData= async () => {
         populateWithdrowal (data)
         populateAll(data)
         editBtnEvent(data)
-
        
     }catch (error){
         console.log (error)
-    }finally{
-        console.log ("finally")
     }
 };
 /* FILTRO BOTON INGRESOS */
@@ -123,7 +122,6 @@ const fillValues = (data) => {
         clone.querySelector("#category").textContent =  "  |  " +  data.data[i].category.category
         clone.querySelector("#amount").textContent = "$ " + data.data[i].amount
         clone.querySelector("#edit-btn").setAttribute ("data-id", data.data[i].id) 
-   /*      clone.querySelector("#edit-btn").setAttribute ("href", "/edit/" + data.data[i].id)  */
         if(data.data[i].amount < 0){
             clone.querySelector("#amount").classList.add ("negative")
         }else{
@@ -202,7 +200,7 @@ updateData.addEventListener ("click", (e) =>  {
 const deleteData= document.getElementById("delete-btn")
 
 deleteData.addEventListener("click", (e)=>{
-    console.log ("soy delet btn")
+
     e.preventDefault ()
     let id= localStorage.getItem ("idEdit")
     const endpoint= `/edit/${id}`;
@@ -223,6 +221,7 @@ deleteData.addEventListener("click", (e)=>{
     
 
  /* MODAL ENTRY-BTN */
+
  const entryModalTrigger = document.getElementById ("entry_btn")
  const widgetBar = document.getElementById ("widget-modal")
  const entryModal = document.getElementById ("entry-modal")
@@ -232,27 +231,100 @@ deleteData.addEventListener("click", (e)=>{
  
 
 entryModalTrigger.addEventListener ("click", e=> {
-
             widgetBar.classList.add ("edition","modal-widget","show")
             entryModal.getElementsByTagName ("button")[0].classList.remove ("hide")
             entryModal.classList.add("edition")
             withdrawalModal.classList.add ("hide")
- })
+        })
+
  entryModalClose.addEventListener ("click", e => {
-     widgetBar.classList.remove("show","edition","modal-widget")
-     entryModal.classList.remove ("edition")
-     withdrawalModal.classList.remove ("hide")
- })
+            widgetBar.classList.remove("show","edition","modal-widget")
+            entryModal.classList.remove ("edition")
+            withdrawalModal.classList.remove ("hide")
+        })
+
  /* MODAL WITHDRAWAL-BTN */
+
  const withdrawalModalTrigger = document.getElementById ("withdrawal_btn")
  withdrawalModalTrigger.addEventListener ("click", e=> {
-    widgetBar.classList.add ("edition","modal-widget","show")
-    withdrawalModal.getElementsByTagName ("button")[0].classList.remove ("hide")
-    withdrawalModal.classList.add("edition")
-    entryModal.classList.add ("hide")
- })
+            widgetBar.classList.add ("edition","modal-widget","show")
+            withdrawalModal.getElementsByTagName ("button")[0].classList.remove ("hide")
+            withdrawalModal.classList.add("edition")
+            entryModal.classList.add ("hide")
+        })
+
  withdrawalModalClose.addEventListener ("click", e => {
-    widgetBar.classList.remove("show","edition","modal-widget")
-    withdrawalModal.classList.remove ("edition")
-    entryModal.classList.remove("hide")
-})
+            widgetBar.classList.remove("show","edition","modal-widget")
+            withdrawalModal.classList.remove ("edition")
+            entryModal.classList.remove("hide")
+        })
+/* VALIDACIONES FORM INGRESOS - GASTOS - EDICION*/
+
+const submitFormE = document.getElementById ("entryForm")
+const submitFormW = document.getElementById ("withdrawalForm")
+const submitEditForm = document.getElementById ("editForm")
+const isEmpty = (field) =>{
+    return field.value.trim ().length ===0
+}
+
+const validate = (form) =>{
+
+    let alert = form.amount.nextElementSibling
+    let alertCategory = form.category.nextElementSibling
+
+    form.addEventListener ("submit", (e) => {
+        e.preventDefault ()
+  
+       let contador= []
+            if (isEmpty(form.amount)==true){        
+                alert.innerHTML =  `campo vacio`
+                alert.classList.add ("danger")
+                contador.push ("Fecha vacia")
+            }
+            
+            if (isNaN(form.amount.value)==true){        
+                alert.innerHTML = "Debes ingresar un numero"
+                alert.classList.add ("danger")
+                contador.push ("dato invalido")
+            }
+            if (form.amount.value < 0){
+                alert.innerHTML = "Ingresa un numero positivo"
+                alert.classList.add ("danger")
+                contador.push ("dato invalido")        
+            }
+           if (isEmpty (form.category)==true){
+                alertCategory.innerHTML = `campo vacio`
+                alertCategory.classList.add ("danger")
+                contador.push ("Fecha vacia")
+            }            
+            if (contador.length == 0){        
+                window.alert ("Monto ingresado")           
+                form.submit(fetchForm(form))
+                }          
+    })
+
+}
+
+validate (submitFormE)
+validate (submitFormW)
+
+const fetchForm = (form)=> {
+
+       const data1 =   { 
+        date: form.date.value,
+        category:form.category.value,
+        amount: form.amount.value,
+        } 
+    
+    fetch ("/add",{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(data1)
+    })
+    .then(response => response.json())    
+    .then(data => window.location.href = data.redirect)
+    .catch(error => console.log (error))
+
+
+}

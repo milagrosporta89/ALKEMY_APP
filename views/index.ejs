@@ -2,10 +2,8 @@
 <HTML>
 
 <HEAD>
-
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/normalize.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
@@ -37,7 +35,6 @@
                     <div class="search-bar--input">
                         <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
                         <input type="text" placeholder="Search"></input>
-
                     </div>
                 </form>
             </div>
@@ -47,10 +44,8 @@
                 <p>Mis Movimientos</p>
                 <div>
                     <button id="all">Todos</button>
-
                     <button id="entry" class="main-search--btn">Ingresos</button>
                     <button id="withdrawal" class="main-search--btn">Gastos</button>
-
                 </div>
 
                 <div>
@@ -58,7 +53,6 @@
                         <!-- <form action="" method=""> -->
                         <p>Filtrar por Categoria</p>
                         <div>
-
                             <select name="allTypes" id="type-dropdown">
                                 <option value=""></option>
                                 <option value="entry">Ingreso</option>
@@ -69,21 +63,15 @@
                             </select>
                             <button id="filter-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-                        <!--    </form> -->
-
-                    </div>
+                       </div>
                 </div>
-
             </div>
-
         </div>
         <div class="main">
-            <!-- BALANCE  -->
+            <!----------------------- BALANCE  ---------------------------->
             <div class="main_container-index ">
                 <div class="wrapper">
-
                     <div class="main_header">
-
                         <i class="fa-solid fa-bars"></i>
                         <p>MI BILLETERA</p>
                         <i class="fa-solid fa-power-off"></i>
@@ -101,11 +89,10 @@
                             <button id="all">Todos</button>
                             <button id="entry">Ingreso</button>
                             <button id="withdrawal">Egreso</button>
-
                         </div>
                         <br>
                     </div>
-                    <!-- item list -->
+                                     <!-- item list -->
                     <section class=" " id="balance"> </section>
                     <template class="main_list" id="template-row">
                         <div class="list_table">
@@ -120,66 +107,56 @@
                     </template>
                     <a type="button" class="see-more_btn">Ver mas >></a>
                 </div>
-                <!-- buttons -->
+                                        <!-- buttons -->
                 <div class="main_btn">
                     <a type="button" class="entry_btn"  id="entry_btn">+ </a>
                     <a type="button" class="withdrawal_btn" id="withdrawal_btn" >-</a>
-
                 </div>
             </div>
         </div>
         <div class="main_widget-bar--desktop" id="widget-modal">
-            <!--WIDGET de ingreso y egreso  -->
+                <!--WIDGET de ingreso y egreso  -->
             <div class="entryForm_mainContainer" id="entry-modal">
-                <!-- widtget ingreso -->
+                <!-- --------widtget ingreso------------ -->
                 <div class="main_header-widget--desktop">
                     <button class="hide" id="entry-modal--close">Cerrar  <i class="fas fa-times"></i></button>
                 </div>
                 <div>
-
                     <div class="entryForm_title" data-type="entry">
                         <p>Nuevo Ingreso</p>
                     </div>
-                    <form action="/entry" method="POST" class="" id="form">
+                    <form action="" method="" class="" id="entryForm" data-type="entry">
                         <div class="entryForm_container">
-
                             <label for="date">Fecha </label>
                             <div>
                                 <input type="date" name="date" id="date" required>
                                 <span></span>
                             </div>
-
-
-                            <label for="category">Categoria</label>
-                            <div id="dropdown">
-                                <!--    <input type="text"  name="category" id="category" required > -->
-                                <select name="category" id="category-select" placeholder="Selecciona Categoria">
-                                    <option value=""></option>
-                                </select>
-                                <a type="button" class="categoryEdit_btn" id="edit-btn" href="/categoryEdit"><i
-                                        class="fas fa-plus-circle"></i></a>
-
+                            <div>
+                                <label for="category">Categoria</label>
+                                <a type="button" class="categoryEdit_btn" id="edit-btn" href="/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                            </div>
+                            <div id="dropdown">                       
+                                    <select name="category" id="category-select" placeholder="Selecciona Categoria">
+                                        <option value=""></option>
+                                    </select>                           
                                 <span></span>
                             </div>
                             <div class="amount-symbol">
-
                                 <label for="amount">Monto</label>
                                 <span>$</span>
                             </div>
-                            <div>
-
-                                <input name="amount" id="amount">
-                                <span></span>
+                            <div id="dropdown">                               
+                                    <input name="amount" id="amount">
+                                    <span></span>                                
                             </div>
                             <button type="submit" class="editForm-btn-order-delete " id="btn">Aceptar</button>
                         </div>
-
-
                     </form>
                 </div>
             </div>
             <div class="entryForm_mainContainer" id="withdrawal-modal">
-                <!-- widget egreso -->
+                <!------------------ widget egreso ---------------------------->
                 <div class="main_header-widget--desktop">
                     <button class="hide" id="withdrawal-modal--close">Cerrar  <i class="fas fa-times"></i></button>
                 </div>
@@ -188,55 +165,46 @@
                     <div class="entryForm_title" data-type="withdrawal">
                         <p>Nuevo Gasto</p>
                     </div>
-                    <form action="/withdrawal" method="POST" class="" id="form">
+                    <form action="" method="" class="" id="withdrawalForm">
                         <div class="entryForm_container">
-
                             <label for="date">Fecha </label>
-                            <input type="date" name="date" id="date">
+                            <input type="date" name="date" id="date" required>
 
+                            <div>
+                                <label for="category">Categoria</label>
+                                <a type="button" class="categoryEdit_btn" id="addCategory-btn" href="/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                            </div>
 
-                            <label for="category">Categoria</label>
-                            <div id="dropdown">
-                                <!-- <input type="text"  name="category" id="category" > -->
-
-                                <select name="category" id="category-select-w" placeholder="Selecciona Categoria">
+                            <div id="dropdown">                          
+                                <select name="category" id="category-select-w" placeholder="Selecciona Categoria" >
                                     <option value=""></option>
-                                </select>
-                                <a type="button" class="categoryEdit_btn" id="addCategory-btn" href="/categoryEdit"><i
-                                        class="fas fa-plus-circle"></i></a>
+                                </select>                                
                                 <span></span>
                             </div>
+
                             <div class="amount-symbol">
                                 <label for="amount">Monto</label>
                                 <span>$</span>
                             </div>
 
-
-                            <div>
+                            <div id="dropdown">
                                 <input name="amount" id="amount">
                                 <span></span>
                             </div>
-
                             <button type="submit" class="editForm-btn-order-delete" id="btn">Aceptar</button>
                         </div>
                     </form>
-
                 </div>
             </div>
-
-
-
-
         </div>
-
     </div>
-    <%- include ("partials/editFormTest.ejs")%>
+    <%- include ("partials/editForm.ejs")%>
         <footer>
             <div class="header hide">
-
             </div>
         </footer>
         <script src="js/indexScript.js"></script>
         <script src="js/entryFormScript.js"></script>
+
 
 </HTML>

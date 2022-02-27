@@ -27,21 +27,21 @@
             <div class="entryForm_title" data-type="entry">
                 <p>Editar</p>
             </div>
-                <form action="" method="" class="" id="form">
+                <form action="" method="" class="" id="editForm">
                 <div class="entryForm_container">
                     <label for="date">Fecha </label>
                     <div>
                         <input type="date" name="date" id="dateEdit" required>
                         <span></span>
                     </div>
-    
-                    <label for="category">Categoria</label>
+                    <div>
+                        <label for="category">Categoria</label>
+                        <a type="button" class="categoryEdit_btn" id="edit-btn" href="/categoryEdit"><i class="fas fa-plus-circle"></i></a>
+                    </div>
                     <div id="dropdown">
-                        <select name="category" id="categoryEdit" class="" placeholder="Selecciona Categoria">
+                        <select name="category" id="categoryEdit" class="" >
                             <option value=""></option>
                         </select>
-                        <a type="button" class="categoryEdit_btn" id="edit-btn" href="/categoryEdit"><i
-                                class="fas fa-plus-circle"></i></a>
                         <span></span>
                     </div>
     
@@ -50,7 +50,7 @@
                         <span>$</span>
                     </div>
                     
-                    <div>
+                    <div id="dropdown">
                         <input name="amount" id="amountEdit">
                         <span></span>
                     </div>

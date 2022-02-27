@@ -1,4 +1,5 @@
 /* -------------------------------------DROPDOWN SCRIPT -------------------------------  */
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchCategory();
 
@@ -17,8 +18,6 @@ const fetchCategory= async () => {
         
     }catch (error){
         console.log (error)
-    }finally{
-        console.log ("finally")
     }
 };
 /* POPULATE SELECT CATEGORY INGRESOS */
